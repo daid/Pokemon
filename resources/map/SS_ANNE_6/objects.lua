@@ -1,0 +1,7 @@
+map.createObject(1, 7).setSprite("cook")--[[.enableWander()--]]--[[['1 ; person']--]]
+map.createObject(5, 7).setSprite("cook")--[[.enableWander()--]]--[[['2 ; person']--]]
+map.createObject(9, 8).setSprite("cook")--[[.enableWander()--]]--[[['3 ; person']--]]
+map.createObject(13, 9).setSprite("cook")--[[['4 ; person']--]]
+map.createObject(13, 7).setSprite("cook")--[[['5 ; person']--]]
+map.createObject(13, 5).setSprite("cook")--[[['6 ; person']--]]
+map.createObject(11, 2).setSprite("cook").setDirection("UP")--[[['7 ; person']--]]

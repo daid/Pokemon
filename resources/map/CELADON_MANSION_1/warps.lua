@@ -1,0 +1,5 @@
+map.createObject(4, -1).onTouch(function(player) player.teleportTo("OVERWORLD", 174, 242) end)
+map.createObject(5, -1).onTouch(function(player) player.teleportTo("OVERWORLD", 174, 242) end)
+map.createObject(4, 11).onTouch(function(player) player.teleportTo("OVERWORLD", 175, 248) end)
+map.createObject(7, 10).onTouch(function(player) player.teleportTo("CELADON_MANSION_2", 7, 10) end)
+map.createObject(2, 10).onTouch(function(player) player.teleportTo("CELADON_MANSION_2", 2, 10) end)

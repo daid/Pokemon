@@ -1,0 +1,5 @@
+map.createObject(12, 3).setSprite("oak_aide").setDirection("LEFT")--[[['1 ; person']--]]
+map.createObject(1, 3).setSprite("gambler")--[[['2 ; person']--]]
+map.createObject(15, 5).setSprite("oak_aide").setDirection("DOWN")--[[['3 ; person']--]]
+map.createObject(17, 3).setSprite("oak_aide")--[[['4 ; person']--]]
+map.createObject(16, 5).setSprite("old_amber")--[[['5 ; person']--]]

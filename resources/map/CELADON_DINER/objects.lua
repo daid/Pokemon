@@ -1,0 +1,5 @@
+map.createObject(8, 2).setSprite("cook")--[[.enableWander()--]]--[[['1 ; person']--]]
+map.createObject(7, 5).setSprite("mom_geisha")--[[['2 ; person']--]]
+map.createObject(1, 3).setSprite("fat_bald_guy").setDirection("DOWN")--[[['3 ; person']--]]
+map.createObject(5, 4).setSprite("fisher2").setDirection("RIGHT")--[[['4 ; person']--]]
+map.createObject(0, 6).setSprite("gym_helper").setDirection("DOWN")--[[['5 ; person']--]]

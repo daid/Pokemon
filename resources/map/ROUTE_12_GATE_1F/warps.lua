@@ -1,0 +1,5 @@
+map.createObject(4, 7).onTouch(function(player) player.teleportTo("OVERWORLD", 330, 210) end)
+map.createObject(5, 7).onTouch(function(player) player.teleportTo("OVERWORLD", 331, 210) end)
+map.createObject(4, -1).onTouch(function(player) player.teleportTo("OVERWORLD", 330, 204) end)
+map.createObject(5, -1).onTouch(function(player) player.teleportTo("OVERWORLD", 330, 204) end)
+map.createObject(8, 1).onTouch(function(player) player.teleportTo("ROUTE_12_GATE_2F", 7, 0) end)

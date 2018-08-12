@@ -1,0 +1,5 @@
+map.createObject(23, 25).onTouch(function(player) player.teleportTo("ROCKET_HIDEOUT_2", 27, 19) end)
+map.createObject(21, 25).onTouch(function(player) player.teleportTo("GAME_CORNER", 17, 13) end)
+map.createObject(24, 8).onTouch(function(player) player.teleportTo("ROCKET_HIDEOUT_ELEVATOR", 2, 6) end)
+map.createObject(21, 3).onTouch(function(player) player.teleportTo("ROCKET_HIDEOUT_2", 21, 5) end)
+map.createObject(25, 8).onTouch(function(player) player.teleportTo("ROCKET_HIDEOUT_ELEVATOR", 3, 6) end)

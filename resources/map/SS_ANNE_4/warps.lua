@@ -1,0 +1,6 @@
+map.createObject(23, 4).onTouch(function(player) player.teleportTo("SS_ANNE_10", 12, 0) end)
+map.createObject(19, 4).onTouch(function(player) player.teleportTo("SS_ANNE_10", 2, 0) end)
+map.createObject(15, 4).onTouch(function(player) player.teleportTo("SS_ANNE_10", 22, 10) end)
+map.createObject(11, 4).onTouch(function(player) player.teleportTo("SS_ANNE_10", 12, 10) end)
+map.createObject(7, 4).onTouch(function(player) player.teleportTo("SS_ANNE_10", 2, 10) end)
+map.createObject(27, 2).onTouch(function(player) player.teleportTo("SS_ANNE_1", 37, 2) end)

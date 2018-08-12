@@ -1,0 +1,31 @@
+texture: gui/theme/basic/font.png
+texture_size: 128, 64
+glyph_size: 8, 8
+
+line: ABCDEFGHIJKLMNOP
+line: QRSTUVWXYZ():;[]
+line: abcdefghijklmnop
+line: qrstuvwxyz
+line: 
+line:
+line: `##-##?!.###>>##
+line: $*./,#0123456789
+
+special: 1, 6, 2, #PKMN
+special: 2, 4, 2, #HP
+special: 4, 4, 1, #LVL
+special: 15, 6, 1, #MALE
+special: 5, 7, 1, #FEMALE
+special: 14, 6, 1, #DOWN
+special: 11, 3, 1, 'd
+special: 12, 3, 1, 'l
+special: 13, 3, 1, 's
+special: 14, 3, 1, 't
+special: 15, 3, 1, 'v
+special: 4, 6, 1, 'r
+special: 5, 6, 1, 'm
+
+special: 0, 4, 1, #BALL
+special: 1, 4, 1, #STATUS
+special: 0, 5, 1, #DEATH
+special: 1, 5, 1, #NOBALL

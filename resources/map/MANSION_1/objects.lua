@@ -1,0 +1,12 @@
+map.createObject(17, 10).setSprite("oak_aide").setDirection("LEFT").onUse(function(player) possiblyBattleMANSION_1_17_10(player, true) end)
+map.createObject(16, 10).onTouch(function(player) possiblyBattleMANSION_1_17_10(player, false) end)
+map.createObject(15, 10).onTouch(function(player) possiblyBattleMANSION_1_17_10(player, false) end)
+map.createObject(14, 10).onTouch(function(player) possiblyBattleMANSION_1_17_10(player, false) end)
+function possiblyBattleMANSION_1_17_10(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "MANSION_1_17_10", "SCIENTIST", "scientist", {{29, "ELECTRODE"}, {29, "WEEZING"}}, "Who are you? There\nshouldn't be\nanyone here.", "A key? I don't\nknow what you're\ntalking about.", 'Ouch!')
+end
+map.createObject(14, 24).setSprite("ball").onUse(function(player) attemptToPickupObject("MANSION_1_14_24", "ESCAPE ROPE") end)
+map.createObject(18, 6).setSprite("ball").onUse(function(player) attemptToPickupObject("MANSION_1_18_6", "CARBOS") end)
+map.setAlwaysWildEncounters()
+map.setWildPokemon({0, 0}, {29, 27}, 0.0392157).type("LAND").mode("RED").add(51, 32, "KOFFING").add(51, 30, "KOFFING").add(39, 34, "PONYTA").add(25, 30, "PONYTA").add(25, 34, "GROWLITHE").add(25, 32, "PONYTA").add(13, 30, "GRIMER").add(13, 28, "PONYTA").add(11, 37, "WEEZING").add(3, 39, "MUK")
+map.setWildPokemon({0, 0}, {29, 27}, 0.0392157).type("LAND").mode("BLUE").add(51, 32, "GRIMER").add(51, 30, "GRIMER").add(39, 34, "PONYTA").add(25, 30, "PONYTA").add(25, 34, "VULPIX").add(25, 32, "PONYTA").add(13, 30, "KOFFING").add(13, 28, "PONYTA").add(11, 37, "MUK").add(3, 39, "WEEZING")

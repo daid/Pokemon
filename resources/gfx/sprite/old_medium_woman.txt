@@ -1,0 +1,22 @@
+{
+    texture: gfx/sprite/old_medium_woman.png
+    texture_size: 16, 48
+
+    size: 1, 1
+    frame_size: 16, 16
+    line_length: 1
+    delay: 0.15
+    [Stand_down] {
+        position: 0, 0
+    }
+    [Stand_up] {
+        position: 0, 16
+    }
+    [Stand_left] {
+        position: 0, 32
+    }
+    [Stand_right] {
+        position: 0, 32
+        flip: H
+    }
+}

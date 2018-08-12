@@ -1,0 +1,53 @@
+map.createObject(9, 9).setSprite("girl").setDirection("DOWN")--[[NO HEADER: .onUse(function(player)
+    checkForTrainerBattle(player, true, "SAFFRON_GYM_9_9", "SABRINA", "sabrina", {{38, "KADABRA"}, {37, "MR_MIME"}, {38, "VENOMOTH"}, {43, "ALAKAZAM"}}, '?', '?', '?')
+end)--]]
+map.createObject(10, 16).setSprite("medium").setDirection("DOWN").onUse(function(player) possiblyBattleSAFFRON_GYM_10_16(player, true) end)
+map.createObject(10, 15).onTouch(function(player) possiblyBattleSAFFRON_GYM_10_16(player, false) end)
+map.createObject(10, 14).onTouch(function(player) possiblyBattleSAFFRON_GYM_10_16(player, false) end)
+map.createObject(10, 13).onTouch(function(player) possiblyBattleSAFFRON_GYM_10_16(player, false) end)
+function possiblyBattleSAFFRON_GYM_10_16(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SAFFRON_GYM_10_16", "CHANNELER", "channeler", {{34, "GASTLY"}, {34, "HAUNTER"}}, 'SABRINA is younger\nthan I, but I\nrespect her!', 'In a battle of\nequals, the one\nwith the stronger\nwill wins!', 'Not\ngood enough!')
+end
+map.createObject(17, 16).setSprite("bug_catcher").setDirection("DOWN").onUse(function(player) possiblyBattleSAFFRON_GYM_17_16(player, true) end)
+map.createObject(17, 15).onTouch(function(player) possiblyBattleSAFFRON_GYM_17_16(player, false) end)
+map.createObject(17, 14).onTouch(function(player) possiblyBattleSAFFRON_GYM_17_16(player, false) end)
+map.createObject(17, 13).onTouch(function(player) possiblyBattleSAFFRON_GYM_17_16(player, false) end)
+function possiblyBattleSAFFRON_GYM_17_16(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SAFFRON_GYM_17_16", "PSYCHIC", "psychic", {{31, "KADABRA"}, {31, "SLOWPOKE"}, {31, "MR_MIME"}, {31, "KADABRA"}}, 'Does our unseen\npower scare you?', 'Psychic POKEMON\nfear only ghosts\nand bugs!', 'I never\nforesaw this!')
+end
+map.createObject(3, 10).setSprite("medium").setDirection("DOWN").onUse(function(player) possiblyBattleSAFFRON_GYM_3_10(player, true) end)
+map.createObject(3, 9).onTouch(function(player) possiblyBattleSAFFRON_GYM_3_10(player, false) end)
+map.createObject(3, 8).onTouch(function(player) possiblyBattleSAFFRON_GYM_3_10(player, false) end)
+map.createObject(3, 7).onTouch(function(player) possiblyBattleSAFFRON_GYM_3_10(player, false) end)
+function possiblyBattleSAFFRON_GYM_3_10(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SAFFRON_GYM_3_10", "CHANNELER", "channeler", {{38, "HAUNTER"}}, 'POKEMON take on\nthe appearance of\ntheir trainers.', 'I must teach\nbetter techniques\nto my POKEMON!', 'I knew\nit!')
+end
+map.createObject(17, 10).setSprite("bug_catcher").setDirection("DOWN").onUse(function(player) possiblyBattleSAFFRON_GYM_17_10(player, true) end)
+map.createObject(17, 9).onTouch(function(player) possiblyBattleSAFFRON_GYM_17_10(player, false) end)
+map.createObject(17, 8).onTouch(function(player) possiblyBattleSAFFRON_GYM_17_10(player, false) end)
+map.createObject(17, 7).onTouch(function(player) possiblyBattleSAFFRON_GYM_17_10(player, false) end)
+function possiblyBattleSAFFRON_GYM_17_10(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SAFFRON_GYM_17_10", "PSYCHIC", "psychic", {{34, "MR_MIME"}, {34, "KADABRA"}}, "You know that\npower alone isn't\nenough!", 'SABRINA just wiped\nout the KARATE\nMASTER next door!', "I don't\nbelieve this!")
+end
+map.createObject(3, 4).setSprite("medium").setDirection("DOWN").onUse(function(player) possiblyBattleSAFFRON_GYM_3_4(player, true) end)
+map.createObject(3, 3).onTouch(function(player) possiblyBattleSAFFRON_GYM_3_4(player, false) end)
+map.createObject(3, 2).onTouch(function(player) possiblyBattleSAFFRON_GYM_3_4(player, false) end)
+map.createObject(3, 1).onTouch(function(player) possiblyBattleSAFFRON_GYM_3_4(player, false) end)
+function possiblyBattleSAFFRON_GYM_3_4(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SAFFRON_GYM_3_4", "CHANNELER", "channeler", {{33, "GASTLY"}, {33, "GASTLY"}, {33, "HAUNTER"}}, 'You and I, our\nPOKEMON shall\nfight!', 'I knew that this\nwas going to take\nplace.', 'I lost\nafter all!')
+end
+map.createObject(17, 4).setSprite("bug_catcher").setDirection("DOWN").onUse(function(player) possiblyBattleSAFFRON_GYM_17_4(player, true) end)
+map.createObject(17, 3).onTouch(function(player) possiblyBattleSAFFRON_GYM_17_4(player, false) end)
+map.createObject(17, 2).onTouch(function(player) possiblyBattleSAFFRON_GYM_17_4(player, false) end)
+map.createObject(17, 1).onTouch(function(player) possiblyBattleSAFFRON_GYM_17_4(player, false) end)
+function possiblyBattleSAFFRON_GYM_17_4(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SAFFRON_GYM_17_4", "PSYCHIC", "psychic", {{33, "SLOWPOKE"}, {33, "SLOWPOKE"}, {33, "SLOWBRO"}}, "SABRINA is young,\nbut she's also\nour LEADER!", 'There used to be\n2 POKEMON GYMs in\nSAFFRON.', 'I lost\nmy concentration!')
+end
+map.createObject(3, 16).setSprite("bug_catcher").setDirection("DOWN").onUse(function(player) possiblyBattleSAFFRON_GYM_3_16(player, true) end)
+map.createObject(3, 15).onTouch(function(player) possiblyBattleSAFFRON_GYM_3_16(player, false) end)
+map.createObject(3, 14).onTouch(function(player) possiblyBattleSAFFRON_GYM_3_16(player, false) end)
+map.createObject(3, 13).onTouch(function(player) possiblyBattleSAFFRON_GYM_3_16(player, false) end)
+function possiblyBattleSAFFRON_GYM_3_16(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SAFFRON_GYM_3_16", "PSYCHIC", "psychic", {{38, "SLOWBRO"}}, 'SAFFRON POKEMON\nGYM is famous for\nits psychics!', "That's right! I\nused telepathy to\nread your mind!", 'Arrrgh!')
+end
+map.createObject(10, 2).setSprite("gym_helper").setDirection("DOWN")--[[['9 ; person']--]]

@@ -1,0 +1,7 @@
+map.createObject(0, 9).onTouch(function(player) player.teleportTo("VICTORY_ROAD_1", 1, 16) end)
+map.createObject(29, 10).onTouch(function(player) player.teleportTo("OVERWORLD", 14, 302) end)
+map.createObject(29, 9).onTouch(function(player) player.teleportTo("OVERWORLD", 14, 302) end)
+map.createObject(23, 10).onTouch(function(player) player.teleportTo("VICTORY_ROAD_3", 23, 10) end)
+map.createObject(25, 3).onTouch(function(player) player.teleportTo("VICTORY_ROAD_3", 27, 2) end)
+map.createObject(27, 10).onTouch(function(player) player.teleportTo("VICTORY_ROAD_3", 26, 9) end)
+map.createObject(1, 16).onTouch(function(player) player.teleportTo("VICTORY_ROAD_3", 2, 17) end)

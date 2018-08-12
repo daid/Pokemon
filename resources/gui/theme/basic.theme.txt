@@ -1,0 +1,31 @@
+{
+    color: #FFFFFF
+    font: gui/theme/basic/font.txt
+    size: 8
+    
+    [label] {
+    }
+    [image] {
+    }
+
+    [panel] {
+        image: gui/theme/basic/box.png
+        size: 12
+    }
+    [battle_right_panel] {
+        image: gui/theme/basic/right_battle_box.png
+        size: 12
+    }
+    [battle_left_panel] {
+        image: gui/theme/basic/left_battle_box.png
+        size: 12
+    }
+    
+    [progressbar.background] {
+        image: gui/theme/basic/progressbar_background.png
+    }
+    [progressbar.forground] {
+        image: gui/theme/basic/progressbar_forground.png
+        color: #4aa55a
+    }
+}

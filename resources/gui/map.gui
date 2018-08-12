@@ -1,0 +1,86 @@
+[GUI] {
+    stretch: true
+    
+    [MESSAGE_BOX] {
+        type: panel
+        alignment: bottom
+        fill_width: true
+        size: 100, 48
+        visible: false
+        
+        [MESSAGE_BOX_LABEL] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 8, 8, 16, 8
+        }
+        [MESSAGE_BOX_MORE_INDICATOR] {
+            type: label
+            stretch: true
+            text_alignment: bottomright
+            margin: 8
+            caption: #DOWN
+            visible: false
+        }
+    }
+    
+    [CONFIRM_BOX] {
+        type: panel
+        alignment: bottomright
+        position: 0, -48
+        size: 48, 40
+        order: 100
+        visible: false
+
+        {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 16, 8
+            caption: YES\
+                \
+                NO
+        }
+        
+        [CONFIRM_CURSOR] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 8
+            caption: >
+        }
+    }
+
+    [CHOICE_MENU] {
+        type: panel
+        alignment: bottomleft
+        position: 8, -48
+        size: 144, 80
+        order: 100
+        visible: false
+
+        [LABEL] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 16, 8
+            caption: 1\
+                2\
+                3\
+                4\
+                5\
+                6\
+                7\
+                8
+        }
+        
+        [CURSOR] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 8
+            size: 8, 8
+            caption: >
+        }
+    }
+}

@@ -1,0 +1,7 @@
+map.createObject(4, 15).onTouch(function(player) player.teleportTo("SEAFOAM_ISLANDS_3", 5, 14) end)
+map.createObject(7, 12).onTouch(function(player) player.teleportTo("SEAFOAM_ISLANDS_1", 7, 12) end)
+map.createObject(13, 10).onTouch(function(player) player.teleportTo("SEAFOAM_ISLANDS_3", 13, 10) end)
+map.createObject(19, 2).onTouch(function(player) player.teleportTo("SEAFOAM_ISLANDS_3", 19, 2) end)
+map.createObject(23, 2).onTouch(function(player) player.teleportTo("SEAFOAM_ISLANDS_1", 23, 2) end)
+map.createObject(25, 6).onTouch(function(player) player.teleportTo("SEAFOAM_ISLANDS_3", 25, 6) end)
+map.createObject(25, 14).onTouch(function(player) player.teleportTo("SEAFOAM_ISLANDS_1", 25, 14) end)

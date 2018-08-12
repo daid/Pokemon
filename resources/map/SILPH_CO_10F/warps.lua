@@ -1,0 +1,6 @@
+map.createObject(8, 17).onTouch(function(player) player.teleportTo("SILPH_CO_9F", 14, 17) end)
+map.createObject(10, 17).onTouch(function(player) player.teleportTo("SILPH_CO_11F", 9, 17) end)
+map.createObject(12, 17).onTouch(function(player) player.teleportTo("SILPH_CO_ELEVATOR", 1, 0) end)
+map.createObject(9, 6).onTouch(function(player) player.teleportTo("SILPH_CO_4F", 11, 10) end)
+map.createObject(13, 2).onTouch(function(player) player.teleportTo("SILPH_CO_4F", 3, 2) end)
+map.createObject(13, 10).onTouch(function(player) player.teleportTo("SILPH_CO_4F", 17, 6) end)

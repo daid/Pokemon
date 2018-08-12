@@ -1,0 +1,6 @@
+map.createObject(8, 5).setSprite("ball").onUse(function(player) attemptToPickupObject("SAFARI_ZONE_WEST_8_5", "MAX POTION") end)
+map.createObject(9, 18).setSprite("ball").onUse(function(player) attemptToPickupObject("SAFARI_ZONE_WEST_9_18", "TM 32") end)
+map.createObject(18, 7).setSprite("ball").onUse(function(player) attemptToPickupObject("SAFARI_ZONE_WEST_18_7", "MAX REVIVE") end)
+map.createObject(19, 18).setSprite("ball").onUse(function(player) attemptToPickupObject("SAFARI_ZONE_WEST_19_18", "GOLD TEETH") end)
+map.setWildPokemon({0, 0}, {29, 25}, 0.117647).type("LAND").mode("RED").add(51, 25, "NIDORAN_M").add(51, 26, "DODUO").add(39, 23, "VENONAT").add(25, 24, "EXEGGCUTE").add(25, 33, "NIDORINO").add(25, 26, "EXEGGCUTE").add(13, 25, "NIDORAN_F").add(13, 31, "VENOMOTH").add(11, 26, "TAUROS").add(3, 28, "KANGASKHAN")
+map.setWildPokemon({0, 0}, {29, 25}, 0.117647).type("LAND").mode("BLUE").add(51, 25, "NIDORAN_F").add(51, 26, "DODUO").add(39, 23, "VENONAT").add(25, 24, "EXEGGCUTE").add(25, 33, "NIDORINA").add(25, 26, "EXEGGCUTE").add(13, 25, "NIDORAN_M").add(13, 31, "VENOMOTH").add(11, 26, "TAUROS").add(3, 28, "KANGASKHAN")

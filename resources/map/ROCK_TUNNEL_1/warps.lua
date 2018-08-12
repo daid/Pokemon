@@ -1,0 +1,8 @@
+map.createObject(15, 32).onTouch(function(player) player.teleportTo("OVERWORLD", 328, 298) end)
+map.createObject(15, 35).onTouch(function(player) player.teleportTo("OVERWORLD", 328, 298) end)
+map.createObject(15, 2).onTouch(function(player) player.teleportTo("OVERWORLD", 328, 262) end)
+map.createObject(15, -1).onTouch(function(player) player.teleportTo("OVERWORLD", 328, 262) end)
+map.createObject(37, 32).onTouch(function(player) player.teleportTo("ROCK_TUNNEL_2", 33, 10) end)
+map.createObject(5, 32).onTouch(function(player) player.teleportTo("ROCK_TUNNEL_2", 27, 32) end)
+map.createObject(17, 24).onTouch(function(player) player.teleportTo("ROCK_TUNNEL_2", 23, 24) end)
+map.createObject(37, 18).onTouch(function(player) player.teleportTo("ROCK_TUNNEL_2", 3, 32) end)

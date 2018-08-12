@@ -1,0 +1,435 @@
+[BATTLE] {
+    stretch: true
+    
+    [SELECT_POKEMON] {
+        visible: false
+        fill_width: true
+        size: 100, 96
+
+        [CURSOR] {
+            type: label
+            text_alignment: bottomleft
+            position: 0, 0
+            size: 8, 16
+            caption: >
+        }
+        
+        {
+            stretch: true
+            layout: vertical
+            [ROW0] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW1] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW2] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW3] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW4] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW5] {
+                @ref: SELECT_POKEMON_ROW
+            }
+        }
+    }
+
+    [MESSAGE_BOX] {
+        type: panel
+        alignment: bottom
+        fill_width: true
+        size: 100, 48
+        
+        [MESSAGE_BOX_LABEL] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 8, 8, 16, 8
+            caption: Hello
+        }
+        [MESSAGE_BOX_MORE_INDICATOR] {
+            type: label
+            stretch: true
+            text_alignment: bottomright
+            margin: 8
+            caption: #DOWN
+            visible: no
+        }
+    }
+    
+    [STATS_BOX] {
+        type: panel
+        alignment: topright
+        size: 88, 80
+        margin: 0, 16
+        layout: vertical
+        visible: false
+        order: 100
+        
+        {
+            type: label
+            caption: ATTACK
+            text_alignment: topleft
+            margin: 16, 0, 8, 0
+            size: 56, 8
+        }
+        [ATTACK] {
+            type: label
+            caption: 100
+            text_alignment: topright
+            margin: 16, 0
+            size: 56, 8
+        }
+        {
+            type: label
+            caption: DEFENSE
+            text_alignment: topleft
+            margin: 16, 0
+            size: 56, 8
+        }
+        [DEFENSE] {
+            type: label
+            caption: 100
+            text_alignment: topright
+            margin: 16, 0
+            size: 56, 8
+        }
+        {
+            type: label
+            caption: SPEED
+            text_alignment: topleft
+            margin: 16, 0
+            size: 56, 8
+        }
+        [SPEED] {
+            type: label
+            caption: 100
+            text_alignment: topright
+            margin: 16, 0
+            size: 56, 8
+        }
+        {
+            type: label
+            caption: SPECIAL
+            text_alignment: topleft
+            margin: 16, 0
+            size: 56, 8
+        }
+        [SPECIAL] {
+            type: label
+            caption: 100
+            text_alignment: topright
+            margin: 16, 0
+            size: 56, 8
+        }
+    }
+    
+    [PLAYER_INFO_BOX] {
+        #Contains HP or pokeball information
+        type: panel
+        alignment: bottomright
+        margin: 8, 48
+        theme_data: battle_right_panel
+        size: 80, 24
+
+        [INFO_LABEL] {
+            type: label
+            margin: 8
+            stretch: true
+            text_alignment: right
+            caption: 100/100
+        }
+        [HP] {
+            type: progressbar
+            alignment: bottomright
+            margin: 7, 16
+            size: 50, 8
+            {
+                type: label
+                position: 1, 0
+                size: 0, 8
+                text_alignment: right
+                caption: #HP
+            }
+        }
+        [NAME] {
+            type: label
+            alignment: bottomright
+            text_alignment: right
+            margin: 0, 32
+            size: 0, 8
+            caption: HELLOWORLD
+        }
+        [LEVEL] {
+            type: label
+            alignment: bottomright
+            text_alignment: left
+            margin: 0, 24
+            size: 40, 8
+            caption: #LVL12
+        }
+    }
+    [ENEMY_INFO_BOX] {
+        #Contains HP or pokeball information
+        type: panel
+        alignment: topleft
+        margin: 8, 8
+        theme_data: battle_left_panel
+        size: 80, 24
+
+        [INFO_LABEL] {
+            type: label
+            margin: 8
+            stretch: true
+            text_alignment: left
+            caption: #HP
+        }
+        [HP] {
+            type: progressbar
+            alignment: topleft
+            margin: 23, 8
+            size: 50, 8
+        }
+        [NAME] {
+            type: label
+            alignment: topleft
+            text_alignment: left
+            margin: 0, -8
+            size: 0, 8
+            caption: HELLOWORLD
+        }
+        [LEVEL] {
+            type: label
+            alignment: topleft
+            text_alignment: left
+            margin: 24, 0
+            size: 0, 8
+            caption: #LVL12
+        }
+    }
+    [ENEMY_IMAGE] {
+        type: image
+        size: 56, 56
+        order: -20
+        alignment: topright
+        margin: 8, 0
+        texture: gfx/front/NIDORAN_M.png
+    }
+    [PLAYER_IMAGE] {
+        type: image
+        size: 64, 64
+        alignment: bottomleft
+        order: -10
+        margin: 8, 38
+        texture: gfx/trainer/redb.png
+    }
+
+    [COMMAND_BOX] {
+        type: panel
+        alignment: bottomright
+        size: 96, 48
+        order: 10
+        visible: no
+        
+        [COMMAND_FIGHT] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 16, 8, 16, 8
+            caption: FIGHT
+        }
+        [COMMAND_ITEM] {
+            type: label
+            stretch: true
+            text_alignment: bottomleft
+            margin: 16, 8, 16, 8
+            caption: ITEM
+        }
+        [COMMAND_POKEMON] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 64, 8, 16, 8
+            caption: #PKMN
+        }
+        [COMMAND_RUN] {
+            type: label
+            stretch: true
+            text_alignment: bottomleft
+            margin: 64, 8, 16, 8
+            caption: RUN
+        }
+        [COMMAND_CURSOR] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 8, 8, 16, 8
+            caption: >
+        }
+    }
+
+    [MOVES_BOX] {
+        type: panel
+        alignment: bottomright
+        size: 128, 48
+        order: 20
+        visible: no
+        
+        [MOVES] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 16, 8, 8, 8
+            caption: MOVE1\
+                MOVE2\
+                MOVE3\
+                MOVE4
+        }
+        [MOVE_CURSOR] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 8, 8, 8, 8
+            caption: >
+        }
+
+        [MOVE_INFO] {
+            type: panel
+            alignment: topleft
+            size: 88, 40
+            position: -32, -32
+            
+            {
+                type: label
+                stretch: true
+                text_alignment: topleft
+                margin: 8
+                caption: TYPE/
+            }
+            [MOVE_INFO_TYPE_LABEL] {
+                type: label
+                stretch: true
+                text_alignment: topleft
+                margin: 16, 8, 16, 8
+                caption: NORMAL
+            }
+            [MOVE_INFO_PP_LABEL] {
+                type: label
+                stretch: true
+                text_alignment: bottomright
+                margin: 8, 8, 8, 8
+                caption: 18/20
+            }
+        }
+    }
+    [CONFIRM_BOX] {
+        type: panel
+        alignment: bottomleft
+        position: 0, -48
+        size: 48, 40
+        order: 100
+        visible: no
+
+        {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 16, 8
+            caption: YES\
+                \
+                NO
+        }
+        
+        [CONFIRM_CURSOR] {
+            type: label
+            stretch: true
+            text_alignment: topleft
+            margin: 8
+            caption: >
+        }
+    }
+
+    [ITEM_SELECTION] {
+        type: panel
+        alignment: topright
+        size: 144, 80
+        margin: 0, 16
+        order: 100
+        visible: false
+        
+        [ITEMS] {
+            type: label
+            caption: ITEM*10
+            text_alignment: topleft
+            margin: 16, 0, 8, 0
+            size: 120, 64
+        }
+        [CURSOR] {
+            type: label
+            text_alignment: topleft
+            margin: 8, 8
+            size: 8, 8
+            caption: >
+        }
+        [MORE] {
+            type: label
+            visible: false
+            text_alignment: topleft
+            alignment: bottomright
+            margin: 8, 8
+            size: 8, 8
+            caption: #DOWN
+        }
+    }
+}
+
+[@SELECT_POKEMON_ROW] {
+    fill_width: true
+    size: 100, 16
+    [ICON] {
+        type: image
+        texture: gfx/sprite/ball.png
+        position: 8, 0
+        size: 16, 16
+    }
+    [NAME] {
+        type: label
+        position: 24, 0
+        size: 80, 8
+        caption: 1234512345
+        text_alignment: topleft
+    }
+    {
+        type: label
+        position: 32, 8
+        size: 16, 8
+        caption: #HP
+        text_alignment: topleft
+    }
+    [HP] {
+        type: progressbar
+        alignment: topleft
+        margin: 46, 8
+        size: 50, 8
+    }
+    [LEVEL] {
+        type: label
+        alignment: topleft
+        text_alignment: left
+        margin: 104, 0
+        size: 0, 8
+        caption: #LVL12
+    }
+    [HP_LABEL] {
+        type: label
+        alignment: topleft
+        text_alignment: left
+        margin: 104, 8
+        size: 0, 8
+        caption: 123/123
+    }
+}

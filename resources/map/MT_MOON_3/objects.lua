@@ -1,0 +1,43 @@
+map.createObject(12, 27).setSprite("black_hair_boy_2").setDirection("RIGHT").onUse(function(player) possiblyBattleMT_MOON_3_12_27(player, true) end)
+map.createObject(13, 27).onTouch(function(player) possiblyBattleMT_MOON_3_12_27(player, false) end)
+function possiblyBattleMT_MOON_3_12_27(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "MT_MOON_3_12_27", "SUPER NERD", "supernerd", {{12, "GRIMER"}, {12, "VOLTORB"}, {12, "KOFFING"}}, 'TODO', 'TODO', 'TODO')
+end
+map.createObject(11, 19).setSprite("rocket").setDirection("DOWN").onUse(function(player) possiblyBattleMT_MOON_3_11_19(player, true) end)
+map.createObject(11, 18).onTouch(function(player) possiblyBattleMT_MOON_3_11_19(player, false) end)
+map.createObject(11, 17).onTouch(function(player) possiblyBattleMT_MOON_3_11_19(player, false) end)
+map.createObject(11, 16).onTouch(function(player) possiblyBattleMT_MOON_3_11_19(player, false) end)
+map.createObject(11, 15).onTouch(function(player) possiblyBattleMT_MOON_3_11_19(player, false) end)
+function possiblyBattleMT_MOON_3_11_19(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "MT_MOON_3_11_19", "ROCKET", "rocket", {{13, "RATTATA"}, {13, "ZUBAT"}}, 'TEAM ROCKET will\nfind the fossils,\nrevive and sell\nthem for cash!', 'You made me mad!\nTEAM ROCKET will\nblacklist you!', "Urgh!\nNow I'm mad!")
+end
+map.createObject(15, 13).setSprite("rocket").setDirection("DOWN").onUse(function(player) possiblyBattleMT_MOON_3_15_13(player, true) end)
+map.createObject(15, 12).onTouch(function(player) possiblyBattleMT_MOON_3_15_13(player, false) end)
+map.createObject(15, 11).onTouch(function(player) possiblyBattleMT_MOON_3_15_13(player, false) end)
+map.createObject(15, 10).onTouch(function(player) possiblyBattleMT_MOON_3_15_13(player, false) end)
+map.createObject(15, 9).onTouch(function(player) possiblyBattleMT_MOON_3_15_13(player, false) end)
+function possiblyBattleMT_MOON_3_15_13(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "MT_MOON_3_15_13", "ROCKET", "rocket", {{11, "SANDSHREW"}, {11, "RATTATA"}, {11, "ZUBAT"}}, 'We, TEAM ROCKET,\nare POKEMON\ngangsters!', "Darn it all! My\nassociates won't\nstand for this!", 'I blew\nit!')
+end
+map.createObject(29, 24).setSprite("rocket").setDirection("UP").onUse(function(player) possiblyBattleMT_MOON_3_29_24(player, true) end)
+map.createObject(29, 25).onTouch(function(player) possiblyBattleMT_MOON_3_29_24(player, false) end)
+map.createObject(29, 26).onTouch(function(player) possiblyBattleMT_MOON_3_29_24(player, false) end)
+map.createObject(29, 27).onTouch(function(player) possiblyBattleMT_MOON_3_29_24(player, false) end)
+map.createObject(29, 28).onTouch(function(player) possiblyBattleMT_MOON_3_29_24(player, false) end)
+function possiblyBattleMT_MOON_3_29_24(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "MT_MOON_3_29_24", "ROCKET", "rocket", {{12, "ZUBAT"}, {12, "EKANS"}}, "We're pulling a\nbig job here!\nGet lost, kid!", 'If you find a\nfossil, give it\nto me and scram!', 'So, you\nare good.')
+end
+map.createObject(29, 18).setSprite("rocket").setDirection("LEFT").onUse(function(player) possiblyBattleMT_MOON_3_29_18(player, true) end)
+map.createObject(28, 18).onTouch(function(player) possiblyBattleMT_MOON_3_29_18(player, false) end)
+map.createObject(27, 18).onTouch(function(player) possiblyBattleMT_MOON_3_29_18(player, false) end)
+map.createObject(26, 18).onTouch(function(player) possiblyBattleMT_MOON_3_29_18(player, false) end)
+map.createObject(25, 18).onTouch(function(player) possiblyBattleMT_MOON_3_29_18(player, false) end)
+function possiblyBattleMT_MOON_3_29_18(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "MT_MOON_3_29_18", "ROCKET", "rocket", {{16, "RATICATE"}}, 'Little kids\nshould leave\ngrown-ups alone!', 'POKEMON lived\nhere long before\npeople came.', "I'm\nsteamed!")
+end
+map.createObject(11, 29).setSprite("omanyte")--[[['6 ; person']--]]
+map.createObject(14, 29).setSprite("omanyte")--[[['7 ; person']--]]
+map.createObject(25, 14).setSprite("ball").onUse(function(player) attemptToPickupObject("MT_MOON_3_25_14", "HP UP") end)
+map.createObject(29, 30).setSprite("ball").onUse(function(player) attemptToPickupObject("MT_MOON_3_29_30", "TM 01") end)
+map.setAlwaysWildEncounters()
+map.setWildPokemon({0, 0}, {39, 35}, 0.0392157).type("LAND").add(51, 9, "ZUBAT").add(51, 9, "GEODUDE").add(39, 10, "ZUBAT").add(25, 10, "GEODUDE").add(25, 11, "ZUBAT").add(25, 10, "PARAS").add(13, 12, "PARAS").add(13, 10, "CLEFAIRY").add(11, 12, "ZUBAT").add(3, 12, "CLEFAIRY")

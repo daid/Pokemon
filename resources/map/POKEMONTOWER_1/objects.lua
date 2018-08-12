@@ -1,0 +1,5 @@
+map.createObject(15, 4).setSprite("cable_club_woman").setDirection("UP")--[[['1 ; person']--]]
+map.createObject(6, 9).setSprite("mom_geisha")--[[['2 ; person']--]]
+map.createObject(8, 5).setSprite("balding_guy")--[[['3 ; person']--]]
+map.createObject(13, 10).setSprite("girl")--[[['4 ; person']--]]
+map.createObject(17, 10).setSprite("medium").setDirection("LEFT")--[[['5 ; person']--]]

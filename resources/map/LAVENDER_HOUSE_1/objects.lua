@@ -1,0 +1,6 @@
+map.createObject(3, 2).setSprite("black_hair_boy_2")--[[['1 ; person']--]]
+map.createObject(6, 4).setSprite("little_girl").setDirection("DOWN")--[[['2 ; person']--]]
+map.createObject(6, 3).setSprite("slowbro").setDirection("UP")--[[['3 ; person']--]]
+map.createObject(1, 4).setSprite("slowbro")--[[['4 ; person']--]]
+map.createObject(3, 6).setSprite("mr_fuji")--[[['5 ; person']--]]
+map.createObject(3, 4).setSprite("book_map_dex")--[[['6 ; person']--]]

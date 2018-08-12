@@ -1,0 +1,5 @@
+map.createObject(16, 2).setSprite("mart_guy")--[[['1 ; person']--]]
+map.createObject(11, 1).setSprite("gameboy_kid").setDirection("RIGHT")--[[['2 ; person']--]]
+map.createObject(7, 5).setSprite("gameboy_kid").setDirection("DOWN")--[[['3 ; person']--]]
+map.createObject(8, 5).setSprite("gameboy_kid").setDirection("DOWN")--[[['4 ; person']--]]
+map.createObject(2, 2).setSprite("young_boy").setDirection("UP")--[[['5 ; person']--]]

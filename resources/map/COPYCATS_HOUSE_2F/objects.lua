@@ -1,0 +1,5 @@
+map.createObject(4, 4).setSprite("brunette_girl")--[[.enableWander()--]]--[[['1 ; person']--]]
+map.createObject(4, 1).setSprite("bird")--[[.enableWander()--]]--[[['2 ; person']--]]
+map.createObject(5, 6).setSprite("slowbro").setDirection("DOWN")--[[['3 ; person']--]]
+map.createObject(2, 7).setSprite("bird").setDirection("DOWN")--[[['4 ; person']--]]
+map.createObject(1, 1).setSprite("clefairy").setDirection("RIGHT")--[[['5 ; person']--]]

@@ -1,0 +1,5 @@
+map.createObject(2, -1).onTouch(function(player) player.teleportTo("OVERWORLD", 56, 8) end)
+map.createObject(3, -1).onTouch(function(player) player.teleportTo("OVERWORLD", 56, 8) end)
+map.createObject(8, 3).onTouch(function(player) player.teleportTo("CINNABAR_LAB_2", 2, 0) end)
+map.createObject(12, 3).onTouch(function(player) player.teleportTo("CINNABAR_LAB_3", 2, 0) end)
+map.createObject(16, 3).onTouch(function(player) player.teleportTo("CINNABAR_LAB_4", 2, 0) end)

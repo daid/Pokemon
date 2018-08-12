@@ -1,0 +1,22 @@
+map.createObject(12, 14).setSprite("medium").setDirection("LEFT").onUse(function(player) possiblyBattlePOKEMONTOWER_3_12_14(player, true) end)
+map.createObject(11, 14).onTouch(function(player) possiblyBattlePOKEMONTOWER_3_12_14(player, false) end)
+map.createObject(10, 14).onTouch(function(player) possiblyBattlePOKEMONTOWER_3_12_14(player, false) end)
+function possiblyBattlePOKEMONTOWER_3_12_14(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "POKEMONTOWER_3_12_14", "CHANNELER", "channeler", {{23, "GASTLY"}}, 'Urrg...Awaa...\nHuhu...graa..', 'The GHOSTs can be\nidentified by the\nSILPH SCOPE.', "Hwa!\nI'm saved!")
+end
+map.createObject(9, 9).setSprite("medium").setDirection("DOWN").onUse(function(player) possiblyBattlePOKEMONTOWER_3_9_9(player, true) end)
+map.createObject(9, 8).onTouch(function(player) possiblyBattlePOKEMONTOWER_3_9_9(player, false) end)
+map.createObject(9, 7).onTouch(function(player) possiblyBattlePOKEMONTOWER_3_9_9(player, false) end)
+map.createObject(9, 6).onTouch(function(player) possiblyBattlePOKEMONTOWER_3_9_9(player, false) end)
+function possiblyBattlePOKEMONTOWER_3_9_9(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "POKEMONTOWER_3_9_9", "CHANNELER", "channeler", {{24, "GASTLY"}}, 'Kekeke....\nKwaaah!', 'Sorry! I was\npossessed!', 'Hmm?\nWhat am I doing?')
+end
+map.createObject(10, 4).setSprite("medium").setDirection("DOWN").onUse(function(player) possiblyBattlePOKEMONTOWER_3_10_4(player, true) end)
+map.createObject(10, 3).onTouch(function(player) possiblyBattlePOKEMONTOWER_3_10_4(player, false) end)
+map.createObject(10, 2).onTouch(function(player) possiblyBattlePOKEMONTOWER_3_10_4(player, false) end)
+function possiblyBattlePOKEMONTOWER_3_10_4(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "POKEMONTOWER_3_10_4", "CHANNELER", "channeler", {{22, "GASTLY"}}, 'Be gone!\nEvil spirit!', 'My friends were\npossessed too!', 'Whew!\nThe spirit left!')
+end
+map.createObject(12, 16).setSprite("ball").onUse(function(player) attemptToPickupObject("POKEMONTOWER_3_12_16", "ESCAPE ROPE") end)
+map.setAlwaysWildEncounters()
+map.setWildPokemon({0, 0}, {19, 17}, 0.0392157).type("LAND").add(51, 20, "GASTLY").add(51, 21, "GASTLY").add(39, 22, "GASTLY").add(25, 23, "GASTLY").add(25, 19, "GASTLY").add(25, 18, "GASTLY").add(13, 24, "GASTLY").add(13, 20, "CUBONE").add(11, 22, "CUBONE").add(3, 25, "HAUNTER")

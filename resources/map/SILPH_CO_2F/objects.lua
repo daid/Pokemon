@@ -1,0 +1,30 @@
+map.createObject(10, 16).setSprite("erika").setDirection("UP")--[[['1 ; person']--]]
+map.createObject(5, 5).setSprite("oak_aide").setDirection("DOWN").onUse(function(player) possiblyBattleSILPH_CO_2F_5_5(player, true) end)
+map.createObject(5, 4).onTouch(function(player) possiblyBattleSILPH_CO_2F_5_5(player, false) end)
+map.createObject(5, 3).onTouch(function(player) possiblyBattleSILPH_CO_2F_5_5(player, false) end)
+map.createObject(5, 2).onTouch(function(player) possiblyBattleSILPH_CO_2F_5_5(player, false) end)
+function possiblyBattleSILPH_CO_2F_5_5(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SILPH_CO_2F_5_5", "SCIENTIST", "scientist", {{26, "GRIMER"}, {26, "WEEZING"}, {26, "KOFFING"}, {26, "WEEZING"}}, "Help! I'm a SILPH\nemployee.", 'I work for both\nSILPH and TEAM\nROCKET!', 'How\ndid you know I\nwas a ROCKET?')
+end
+map.createObject(24, 4).setSprite("oak_aide").setDirection("LEFT").onUse(function(player) possiblyBattleSILPH_CO_2F_24_4(player, true) end)
+map.createObject(23, 4).onTouch(function(player) possiblyBattleSILPH_CO_2F_24_4(player, false) end)
+map.createObject(22, 4).onTouch(function(player) possiblyBattleSILPH_CO_2F_24_4(player, false) end)
+map.createObject(21, 4).onTouch(function(player) possiblyBattleSILPH_CO_2F_24_4(player, false) end)
+map.createObject(20, 4).onTouch(function(player) possiblyBattleSILPH_CO_2F_24_4(player, false) end)
+function possiblyBattleSILPH_CO_2F_24_4(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SILPH_CO_2F_24_4", "SCIENTIST", "scientist", {{28, "MAGNEMITE"}, {28, "VOLTORB"}, {28, "MAGNETON"}}, "It's off limits\nhere! Go home!", 'Can you solve the\nmaze in here?', "You're\ngood.")
+end
+map.createObject(16, 6).setSprite("rocket").setDirection("UP").onUse(function(player) possiblyBattleSILPH_CO_2F_16_6(player, true) end)
+map.createObject(16, 7).onTouch(function(player) possiblyBattleSILPH_CO_2F_16_6(player, false) end)
+map.createObject(16, 8).onTouch(function(player) possiblyBattleSILPH_CO_2F_16_6(player, false) end)
+map.createObject(16, 9).onTouch(function(player) possiblyBattleSILPH_CO_2F_16_6(player, false) end)
+function possiblyBattleSILPH_CO_2F_16_6(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SILPH_CO_2F_16_6", "ROCKET", "rocket", {{29, "CUBONE"}, {29, "ZUBAT"}}, 'No kids are\nallowed in here!', 'Diamond shaped\ntiles are\nteleport blocks!', 'Tough!')
+end
+map.createObject(24, 10).setSprite("rocket").setDirection("UP").onUse(function(player) possiblyBattleSILPH_CO_2F_24_10(player, true) end)
+map.createObject(24, 11).onTouch(function(player) possiblyBattleSILPH_CO_2F_24_10(player, false) end)
+map.createObject(24, 12).onTouch(function(player) possiblyBattleSILPH_CO_2F_24_10(player, false) end)
+map.createObject(24, 13).onTouch(function(player) possiblyBattleSILPH_CO_2F_24_10(player, false) end)
+function possiblyBattleSILPH_CO_2F_24_10(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SILPH_CO_2F_24_10", "ROCKET", "rocket", {{25, "GOLBAT"}, {25, "ZUBAT"}, {25, "ZUBAT"}, {25, "RATICATE"}, {25, "ZUBAT"}}, 'Hey kid! What are\nyou doing here?', 'SILPH CO. will\nbe merged with\nTEAM ROCKET!', 'I goofed!')
+end

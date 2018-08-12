@@ -1,0 +1,6 @@
+map.createObject(29, 16).onTouch(function(player) player.teleportTo("UNKNOWN_DUNGEON_1", 27, 16) end)
+map.createObject(22, 11).onTouch(function(player) player.teleportTo("UNKNOWN_DUNGEON_1", 23, 10) end)
+map.createObject(19, 10).onTouch(function(player) player.teleportTo("UNKNOWN_DUNGEON_1", 18, 8) end)
+map.createObject(9, 16).onTouch(function(player) player.teleportTo("UNKNOWN_DUNGEON_1", 7, 16) end)
+map.createObject(1, 14).onTouch(function(player) player.teleportTo("UNKNOWN_DUNGEON_1", 1, 14) end)
+map.createObject(3, 6).onTouch(function(player) player.teleportTo("UNKNOWN_DUNGEON_1", 3, 6) end)

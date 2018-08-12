@@ -1,0 +1,25 @@
+map.createObject(4, 15).setSprite("lapras_giver")--[[['1 ; person']--]]
+map.createObject(19, 15).setSprite("rocket").setDirection("LEFT").onUse(function(player) possiblyBattleSILPH_CO_8F_19_15(player, true) end)
+map.createObject(18, 15).onTouch(function(player) possiblyBattleSILPH_CO_8F_19_15(player, false) end)
+map.createObject(17, 15).onTouch(function(player) possiblyBattleSILPH_CO_8F_19_15(player, false) end)
+map.createObject(16, 15).onTouch(function(player) possiblyBattleSILPH_CO_8F_19_15(player, false) end)
+map.createObject(15, 15).onTouch(function(player) possiblyBattleSILPH_CO_8F_19_15(player, false) end)
+function possiblyBattleSILPH_CO_8F_19_15(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SILPH_CO_8F_19_15", "ROCKET", "rocket", {{26, "RATICATE"}, {26, "ZUBAT"}, {26, "GOLBAT"}, {26, "RATTATA"}}, "That's as far as\nyou'll go!", "If you don't turn\nback, I'll call\nfor backup!", 'Not\nenough grit!')
+end
+map.createObject(10, 15).setSprite("oak_aide").setDirection("DOWN").onUse(function(player) possiblyBattleSILPH_CO_8F_10_15(player, true) end)
+map.createObject(10, 14).onTouch(function(player) possiblyBattleSILPH_CO_8F_10_15(player, false) end)
+map.createObject(10, 13).onTouch(function(player) possiblyBattleSILPH_CO_8F_10_15(player, false) end)
+map.createObject(10, 12).onTouch(function(player) possiblyBattleSILPH_CO_8F_10_15(player, false) end)
+map.createObject(10, 11).onTouch(function(player) possiblyBattleSILPH_CO_8F_10_15(player, false) end)
+function possiblyBattleSILPH_CO_8F_10_15(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SILPH_CO_8F_10_15", "SCIENTIST", "scientist", {{29, "GRIMER"}, {29, "ELECTRODE"}}, "You're causing us\nproblems!", "So, what do you\nthink of SILPH\nBUILDING's maze?", 'Huh?\nI lost?')
+end
+map.createObject(12, 2).setSprite("rocket").setDirection("RIGHT").onUse(function(player) possiblyBattleSILPH_CO_8F_12_2(player, true) end)
+map.createObject(13, 2).onTouch(function(player) possiblyBattleSILPH_CO_8F_12_2(player, false) end)
+map.createObject(14, 2).onTouch(function(player) possiblyBattleSILPH_CO_8F_12_2(player, false) end)
+map.createObject(15, 2).onTouch(function(player) possiblyBattleSILPH_CO_8F_12_2(player, false) end)
+map.createObject(16, 2).onTouch(function(player) possiblyBattleSILPH_CO_8F_12_2(player, false) end)
+function possiblyBattleSILPH_CO_8F_12_2(player, is_talked_to)
+    checkForTrainerBattle(player, is_talked_to, "SILPH_CO_8F_12_2", "ROCKET", "rocket", {{28, "WEEZING"}, {28, "GOLBAT"}, {28, "KOFFING"}}, 'I am one of the 4\nROCKET BROTHERS!', "I'll leave you up\nto my brothers!", 'Whoo!\nOh brothers!')
+end
