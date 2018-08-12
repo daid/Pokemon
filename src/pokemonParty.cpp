@@ -43,6 +43,8 @@ bool PokemonParty::copyPokemon(sp::P<PokemonInstance> instance)
     new_instance->paralyzed = instance->paralyzed;
     new_instance->iv = instance->iv;
     new_instance->ev = instance->ev;
+
+    markAsOwned(new_instance->stats.name);
     
     for(int n=0; n<party_size; n++)
     {
@@ -59,6 +61,7 @@ bool PokemonParty::copyPokemon(sp::P<PokemonInstance> instance)
 sp::P<PokemonInstance> PokemonParty::createPokemon(sp::string name, int level)
 {
     sp::P<PokemonInstance> new_instance = new PokemonInstance(name, level, false);
+    markAsOwned(new_instance->stats.name);
     for(int n=0; n<party_size; n++)
     {
         if (!party[n])
@@ -110,4 +113,7 @@ void PokemonParty::onRegisterScriptBindings(sp::ScriptBindingClass& script_bindi
     script_binding_class.bind("get", &PokemonParty::getPartyMember);
     script_binding_class.bind("copyPokemon", &PokemonParty::copyPokemon);
     script_binding_class.bind("createPokemon", &PokemonParty::createPokemon);
+
+    script_binding_class.bind("markAsSeen", &PokemonParty::markAsSeen);
+    script_binding_class.bind("markAsOwned", &PokemonParty::markAsOwned);
 }

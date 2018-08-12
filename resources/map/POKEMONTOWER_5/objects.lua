@@ -24,6 +24,6 @@ map.createObject(11, 1).onTouch(function(player) possiblyBattlePOKEMONTOWER_5_9_
 function possiblyBattlePOKEMONTOWER_5_9_1(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "POKEMONTOWER_5_9_1", "CHANNELER", "channeler", {{22, "HAUNTER"}}, 'Urgah...\nUrff....', 'I fell to evil\nspirits despite\nmy training!', 'Whoo!')
 end
-map.createObject(6, 3).setSprite("ball").onUse(function(player) attemptToPickupObject("POKEMONTOWER_5_6_3", "NUGGET") end)
+map.createObject(6, 3).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "POKEMONTOWER_5_6_3", "NUGGET") end)
 map.setAlwaysWildEncounters()
 map.setWildPokemon({0, 0}, {19, 17}, 0.0392157).type("LAND").add(51, 20, "GASTLY").add(51, 21, "GASTLY").add(39, 22, "GASTLY").add(25, 23, "GASTLY").add(25, 19, "GASTLY").add(25, 18, "GASTLY").add(13, 25, "HAUNTER").add(13, 20, "CUBONE").add(11, 22, "CUBONE").add(3, 24, "GASTLY")

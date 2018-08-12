@@ -38,7 +38,7 @@ function earnExperience(info, amount)
                     --But the backend does account for it.
                     local new_move = pokemon.getLearnedMoveAt(level)
                     if new_move ~= "" then
-                        earnNewMove(pokemon, new_move)
+                        earnNewMove(info, pokemon, new_move)
                     end
                 end
                 --TODO If level up evolution, display evolution animation (and allow user to cancel this)
@@ -56,20 +56,20 @@ function earnEV(info, defeated_pokemon)
     end
 end
 
-function earnNewMove(pokemon, move)
+function earnNewMove(info, pokemon, move)
     local selected_slot = nil
     for n=0, 3 do
         if pokemon.getMoveName(n) == move then
             return false --move already known
         end
-        if pokemon.getMoveName(n) == "" and empty_slot == nil then
+        if pokemon.getMoveName(n) == "" and selected_slot == nil then
             selected_slot = n
         end
     end
     if selected_slot == nil then
         showMessage(pokemon.name() .. " is\ntrying to learn\n" .. move .. "!")
         showMessage("But, " .. pokemon.name() .. "\ncan't learn more\nthan 4 moves!")
-        if not playerQuestion(pokemon.party, "Delete an older\nmove to make room\nfor" .. move .. "?") then
+        if not playerQuestion(info.party, "Delete an older\nmove to make room\nfor" .. move .. "?") then
             showMessage(pokemon.name() .. " did not learn\n\n" .. move .. "!")
             return false
         end

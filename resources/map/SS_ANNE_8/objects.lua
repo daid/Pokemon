@@ -28,5 +28,5 @@ map.createObject(0, 1).setSprite("fat_bald_guy")--[[['6 ; person']--]]
 map.createObject(2, 4).setSprite("little_girl").setDirection("DOWN")--[[['7 ; person']--]]
 map.createObject(3, 4).setSprite("clefairy").setDirection("DOWN")--[[['8 ; person']--]]
 map.createObject(10, 2).setSprite("girl").setDirection("RIGHT")--[[['9 ; person']--]]
-map.createObject(12, 0).setSprite("ball").onUse(function(player) attemptToPickupObject("SS_ANNE_8_12_0", "TM 08") end)
+map.createObject(12, 0).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SS_ANNE_8_12_0", "TM 08") end)
 map.createObject(21, 2).setSprite("gentleman")--[[.enableWander()--]]--[[['11 ; person']--]]

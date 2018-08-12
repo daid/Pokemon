@@ -21,7 +21,7 @@ map.createObject(249, 297).setSprite("lass").setDirection("LEFT")--[[['7 ; perso
 map.createObject(248, 297).setSprite("slowbro").setDirection("DOWN")--[[['8 ; person']--]]
 map.createObject(229, 296).setSprite("lass")--[[.enableWander()--]]--[[['9 ; person']--]]
 map.createObject(224, 311).setSprite("black_hair_boy_2").setDirection("DOWN")--[[['10 ; person']--]]
-map.createObject(247, 311).setSprite("guard").setDirection("DOWN")--[[['11 ; person']--]]
+--Guard in front of the door: map.createObject(247, 311).setSprite("guard").setDirection("DOWN")--[[['11 ; person']--]]
 --map: CINNABAR_ISLAND
 map.createObject(62, 12).setSprite("girl")--[[.enableWander()--]]--[[['1 ; person']--]]
 map.createObject(64, 11).setSprite("gambler")--[[['2 ; person']--]]
@@ -232,8 +232,8 @@ map.createObject(326, 137).onTouch(function(player) possiblyBattleROUTE_12_326_1
 function possiblyBattleROUTE_12_326_138(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROUTE_12_326_138", "FISHER", "fisher", {{24, "MAGIKARP"}, {24, "MAGIKARP"}}, 'You never know\nwhat you could\ncatch!', "I catch MAGIKARP\nall the time, but\nthey're so weak!", 'Lost\nit!')
 end
-map.createObject(334, 190).setSprite("ball").onUse(function(player) attemptToPickupObject("ROUTE_12_334_190", "TM 16") end)
-map.createObject(325, 136).setSprite("ball").onUse(function(player) attemptToPickupObject("ROUTE_12_325_136", "IRON") end)
+map.createObject(334, 190).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROUTE_12_334_190", "TM 16") end)
+map.createObject(325, 136).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROUTE_12_325_136", "IRON") end)
 map.setWildPokemon({320, 118}, {339, 225}, 0.0588235).type("LAND").mode("RED").add(51, 24, "ODDISH").add(51, 25, "PIDGEY").add(39, 23, "PIDGEY").add(25, 24, "VENONAT").add(25, 22, "ODDISH").add(25, 26, "VENONAT").add(13, 26, "ODDISH").add(13, 27, "PIDGEY").add(11, 28, "GLOOM").add(3, 30, "GLOOM")
 map.setWildPokemon({320, 118}, {339, 225}, 0.0588235).type("LAND").mode("BLUE").add(51, 24, "BELLSPROUT").add(51, 25, "PIDGEY").add(39, 23, "PIDGEY").add(25, 24, "VENONAT").add(25, 22, "BELLSPROUT").add(25, 26, "VENONAT").add(13, 26, "BELLSPROUT").add(13, 27, "PIDGEY").add(11, 28, "WEEPINBELL").add(3, 30, "WEEPINBELL")
 --map: ROUTE_13
@@ -450,7 +450,7 @@ map.createObject(218, 71).onTouch(function(player) possiblyBattleROUTE_15_218_68
 function possiblyBattleROUTE_15_218_68(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROUTE_15_218_68", "JR.TRAINER#FEMALE", "jr.trainerf", {{29, "BELLSPROUT"}, {29, "ODDISH"}, {29, "TANGELA"}}, 'Want to play with\nmy POKEMON?', "I'll go train with\nweaker people.@@", 'I was\ntoo impatient!')
 end
-map.createObject(218, 76).setSprite("ball").onUse(function(player) attemptToPickupObject("ROUTE_15_218_76", "TM 20") end)
+map.createObject(218, 76).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROUTE_15_218_76", "TM 20") end)
 map.setWildPokemon({200, 64}, {259, 81}, 0.0588235).type("LAND").mode("RED").add(51, 24, "ODDISH").add(51, 26, "DITTO").add(39, 23, "PIDGEY").add(25, 26, "VENONAT").add(25, 22, "ODDISH").add(25, 28, "VENONAT").add(13, 26, "ODDISH").add(13, 30, "GLOOM").add(11, 28, "PIDGEOTTO").add(3, 30, "PIDGEOTTO")
 map.setWildPokemon({200, 64}, {259, 81}, 0.0588235).type("LAND").mode("BLUE").add(51, 24, "BELLSPROUT").add(51, 26, "DITTO").add(39, 23, "PIDGEY").add(25, 26, "VENONAT").add(25, 22, "BELLSPROUT").add(25, 28, "VENONAT").add(13, 26, "BELLSPROUT").add(13, 30, "WEEPINBELL").add(11, 28, "PIDGEOTTO").add(3, 30, "PIDGEOTTO")
 --map: ROUTE_16
@@ -674,8 +674,8 @@ function possiblyBattleROUTE_19_180_9(player, is_talked_to)
 end
 map.setWildPokemon({170, 0}, {189, 53}, 0.0196078).type("WATER").add(51, 5, "TENTACOOL").add(51, 10, "TENTACOOL").add(39, 15, "TENTACOOL").add(25, 5, "TENTACOOL").add(25, 10, "TENTACOOL").add(25, 15, "TENTACOOL").add(13, 20, "TENTACOOL").add(13, 30, "TENTACOOL").add(11, 35, "TENTACOOL").add(3, 40, "TENTACOOL")
 --map: ROUTE_2
-map.createObject(63, 215).setSprite("ball").onUse(function(player) attemptToPickupObject("ROUTE_2_63_215", "MOON STONE") end)
-map.createObject(63, 224).setSprite("ball").onUse(function(player) attemptToPickupObject("ROUTE_2_63_224", "HP UP") end)
+map.createObject(63, 215).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROUTE_2_63_215", "MOON STONE") end)
+map.createObject(63, 224).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROUTE_2_63_224", "HP UP") end)
 map.setWildPokemon({50, 198}, {69, 269}, 0.0980392).type("LAND").mode("RED").add(51, 3, "RATTATA").add(51, 3, "PIDGEY").add(39, 4, "PIDGEY").add(25, 4, "RATTATA").add(25, 5, "PIDGEY").add(25, 3, "WEEDLE").add(13, 2, "RATTATA").add(13, 5, "RATTATA").add(11, 4, "WEEDLE").add(3, 5, "WEEDLE")
 map.setWildPokemon({50, 198}, {69, 269}, 0.0980392).type("LAND").mode("BLUE").add(51, 3, "RATTATA").add(51, 3, "PIDGEY").add(39, 4, "PIDGEY").add(25, 4, "RATTATA").add(25, 5, "PIDGEY").add(25, 3, "CATERPIE").add(13, 2, "RATTATA").add(13, 5, "RATTATA").add(11, 4, "CATERPIE").add(3, 5, "CATERPIE")
 --map: ROUTE_20
@@ -860,7 +860,7 @@ map.createObject(240, 328).onTouch(function(player) possiblyBattleROUTE_24_241_3
 function possiblyBattleROUTE_24_241_328(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROUTE_24_241_328", "BUG CATCHER", "bugcatcher", {{14, "CATERPIE"}, {14, "WEEDLE"}}, 'This is NUGGET\nBRIDGE! Beat us 5\ntrainers and win\na fabulous prize!', 'I did my best, I\nhave no regrets!', 'Whoo!\nGood stuff!')
 end
-map.createObject(240, 354).setSprite("ball").onUse(function(player) attemptToPickupObject("ROUTE_24_240_354", "TM 45") end)
+map.createObject(240, 354).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROUTE_24_240_354", "TM 45") end)
 map.setWildPokemon({230, 324}, {249, 359}, 0.0980392).type("LAND").mode("RED").add(51, 7, "WEEDLE").add(51, 8, "KAKUNA").add(39, 12, "PIDGEY").add(25, 12, "ODDISH").add(25, 13, "ODDISH").add(25, 10, "ABRA").add(13, 14, "ODDISH").add(13, 13, "PIDGEY").add(11, 8, "ABRA").add(3, 12, "ABRA")
 map.setWildPokemon({230, 324}, {249, 359}, 0.0980392).type("LAND").mode("BLUE").add(51, 7, "CATERPIE").add(51, 8, "METAPOD").add(39, 12, "PIDGEY").add(25, 12, "BELLSPROUT").add(25, 13, "BELLSPROUT").add(25, 10, "ABRA").add(13, 14, "BELLSPROUT").add(13, 13, "PIDGEY").add(11, 8, "ABRA").add(3, 12, "ABRA")
 --map: ROUTE_25
@@ -925,7 +925,7 @@ map.createObject(265, 352).onTouch(function(player) possiblyBattleROUTE_25_263_3
 function possiblyBattleROUTE_25_263_352(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROUTE_25_263_352", "HIKER", "hiker", {{17, "ONIX"}}, "You're going to\nsee BILL? First,\nlet's fight!", 'The trail below\nis a shortcut to\nCERULEAN CITY.', "You're\nsomething.")
 end
-map.createObject(272, 357).setSprite("ball").onUse(function(player) attemptToPickupObject("ROUTE_25_272_357", "TM 19") end)
+map.createObject(272, 357).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROUTE_25_272_357", "TM 19") end)
 map.setWildPokemon({250, 342}, {309, 359}, 0.0588235).type("LAND").mode("RED").add(51, 8, "WEEDLE").add(51, 9, "KAKUNA").add(39, 13, "PIDGEY").add(25, 12, "ODDISH").add(25, 13, "ODDISH").add(25, 12, "ABRA").add(13, 14, "ODDISH").add(13, 10, "ABRA").add(11, 7, "METAPOD").add(3, 8, "CATERPIE")
 map.setWildPokemon({250, 342}, {309, 359}, 0.0588235).type("LAND").mode("BLUE").add(51, 8, "CATERPIE").add(51, 9, "METAPOD").add(39, 13, "PIDGEY").add(25, 12, "BELLSPROUT").add(25, 13, "BELLSPROUT").add(25, 12, "ABRA").add(13, 14, "BELLSPROUT").add(13, 10, "ABRA").add(11, 7, "KAKUNA").add(3, 8, "WEEDLE")
 --map: ROUTE_3
@@ -992,7 +992,7 @@ map.createObject(196, 312).onTouch(function(player) possiblyBattleROUTE_4_193_31
 function possiblyBattleROUTE_4_193_312(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROUTE_4_193_312", "LASS", "lass", {{31, "PARAS"}, {31, "PARAS"}, {31, "PARASECT"}}, 'I came to get my\nmushroom POKEMON!', 'There might not\nbe any more\nmushrooms here.', 'Oh! My cute\nmushroom POKEMON!')
 end
-map.createObject(187, 312).setSprite("ball").onUse(function(player) attemptToPickupObject("ROUTE_4_187_312", "TM 04") end)
+map.createObject(187, 312).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROUTE_4_187_312", "TM 04") end)
 map.setWildPokemon({130, 298}, {219, 315}, 0.0784314).type("LAND").mode("RED").add(51, 10, "RATTATA").add(51, 10, "SPEAROW").add(39, 8, "RATTATA").add(25, 6, "EKANS").add(25, 8, "SPEAROW").add(25, 10, "EKANS").add(13, 12, "RATTATA").add(13, 12, "SPEAROW").add(11, 8, "EKANS").add(3, 12, "EKANS")
 map.setWildPokemon({130, 298}, {219, 315}, 0.0784314).type("LAND").mode("BLUE").add(51, 10, "RATTATA").add(51, 10, "SPEAROW").add(39, 8, "RATTATA").add(25, 6, "SANDSHREW").add(25, 8, "SPEAROW").add(25, 10, "SANDSHREW").add(13, 12, "RATTATA").add(13, 12, "SPEAROW").add(11, 8, "SANDSHREW").add(3, 12, "SANDSHREW")
 --map: ROUTE_5
@@ -1167,7 +1167,7 @@ map.createObject(302, 307).onTouch(function(player) possiblyBattleROUTE_9_300_30
 function possiblyBattleROUTE_9_300_307(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROUTE_9_300_307", "BUG CATCHER", "bugcatcher", {{20, "CATERPIE"}, {20, "WEEDLE"}, {20, "VENONAT"}}, 'Go, my super bug\nPOKEMON!', "If you don't like\nbug POKEMON, you\nbug me!", 'My\nbugs...')
 end
-map.createObject(270, 300).setSprite("ball").onUse(function(player) attemptToPickupObject("ROUTE_9_270_300", "TM 30") end)
+map.createObject(270, 300).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROUTE_9_270_300", "TM 30") end)
 map.setWildPokemon({260, 298}, {319, 315}, 0.0588235).type("LAND").mode("RED").add(51, 16, "RATTATA").add(51, 16, "SPEAROW").add(39, 14, "RATTATA").add(25, 11, "EKANS").add(25, 13, "SPEAROW").add(25, 15, "EKANS").add(13, 17, "RATTATA").add(13, 17, "SPEAROW").add(11, 13, "EKANS").add(3, 17, "EKANS")
 map.setWildPokemon({260, 298}, {319, 315}, 0.0588235).type("LAND").mode("BLUE").add(51, 16, "RATTATA").add(51, 16, "SPEAROW").add(39, 14, "RATTATA").add(25, 11, "SANDSHREW").add(25, 13, "SPEAROW").add(25, 15, "SANDSHREW").add(13, 17, "RATTATA").add(13, 17, "SPEAROW").add(11, 13, "SANDSHREW").add(3, 17, "SANDSHREW")
 --map: SAFFRON_CITY

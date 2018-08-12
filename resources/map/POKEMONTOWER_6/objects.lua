@@ -18,7 +18,7 @@ map.createObject(14, 12).onTouch(function(player) possiblyBattlePOKEMONTOWER_6_1
 function possiblyBattlePOKEMONTOWER_6_16_12(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "POKEMONTOWER_6_16_12", "CHANNELER", "channeler", {{24, "GASTLY"}}, 'Ke..ke...ke...\nke..ke...ke!!', "What's going on\nhere?", 'Keee!')
 end
-map.createObject(6, 9).setSprite("ball").onUse(function(player) attemptToPickupObject("POKEMONTOWER_6_6_9", "RARE CANDY") end)
-map.createObject(14, 3).setSprite("ball").onUse(function(player) attemptToPickupObject("POKEMONTOWER_6_14_3", "X ACCURACY") end)
+map.createObject(6, 9).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "POKEMONTOWER_6_6_9", "RARE CANDY") end)
+map.createObject(14, 3).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "POKEMONTOWER_6_14_3", "X ACCURACY") end)
 map.setAlwaysWildEncounters()
 map.setWildPokemon({0, 0}, {19, 17}, 0.0588235).type("LAND").add(51, 21, "GASTLY").add(51, 22, "GASTLY").add(39, 23, "GASTLY").add(25, 24, "GASTLY").add(25, 20, "GASTLY").add(25, 19, "GASTLY").add(13, 26, "HAUNTER").add(13, 22, "CUBONE").add(11, 24, "CUBONE").add(3, 28, "HAUNTER")

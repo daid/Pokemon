@@ -38,6 +38,6 @@ function possiblyBattleSS_ANNE_10_0_11(player, is_talked_to)
 end
 map.createObject(10, 2).setSprite("black_hair_boy_2").setDirection("RIGHT")--[[['7 ; person']--]]
 map.createObject(11, 3).setSprite("slowbro")--[[['8 ; person']--]]
-map.createObject(20, 13).setSprite("ball").onUse(function(player) attemptToPickupObject("SS_ANNE_10_20_13", "ETHER") end)
-map.createObject(10, 13).setSprite("ball").onUse(function(player) attemptToPickupObject("SS_ANNE_10_10_13", "TM 44") end)
-map.createObject(12, 4).setSprite("ball").onUse(function(player) attemptToPickupObject("SS_ANNE_10_12_4", "MAX POTION") end)
+map.createObject(20, 13).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SS_ANNE_10_20_13", "ETHER") end)
+map.createObject(10, 13).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SS_ANNE_10_10_13", "TM 44") end)
+map.createObject(12, 4).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SS_ANNE_10_12_4", "MAX POTION") end)

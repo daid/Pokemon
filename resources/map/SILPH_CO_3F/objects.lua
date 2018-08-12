@@ -12,4 +12,4 @@ map.createObject(7, 5).onTouch(function(player) possiblyBattleSILPH_CO_3F_7_8(pl
 function possiblyBattleSILPH_CO_3F_7_8(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "SILPH_CO_3F_7_8", "SCIENTIST", "scientist", {{29, "ELECTRODE"}, {29, "WEEZING"}}, 'I support TEAM\nROCKET more than\nI support SILPH!', 'Humph...', 'You\nreally got me!')
 end
-map.createObject(8, 12).setSprite("ball").onUse(function(player) attemptToPickupObject("SILPH_CO_3F_8_12", "HYPER POTION") end)
+map.createObject(8, 12).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SILPH_CO_3F_8_12", "HYPER POTION") end)

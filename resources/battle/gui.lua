@@ -359,11 +359,12 @@ function playerSelectItem(party)
     end
 end
 
-function playerQuestion(party, message)
+function playerQuestion(party, message, default)
     message_label.caption(message)
     gui.getWidget("CONFIRM_BOX").show()
     selection = true
-    gui.getWidget("CONFIRM_CURSOR").setOffset(0, 0)
+    if default ~= nil then selection = default end
+    if selection then gui.getWidget("CONFIRM_CURSOR").setOffset(0, 0) else gui.getWidget("CONFIRM_CURSOR").setOffset(0, 16) end
     while true do
         if party.keyUp() or party.keyDown() then
             selection = not selection

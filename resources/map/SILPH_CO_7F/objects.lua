@@ -31,5 +31,5 @@ function possiblyBattleSILPH_CO_7F_19_3(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "SILPH_CO_7F_19_3", "ROCKET", "rocket", {{29, "SANDSHREW"}, {29, "SANDSLASH"}}, 'A child intruder?\nThat must be you!', 'Go on home\nbefore my BOSS\ngets ticked off!', 'Fine!\nI lost!')
 end
 map.createObject(3, 10).setSprite("blue").setDirection("UP")--[[['9 ; person']--]]
-map.createObject(1, 8).setSprite("ball").onUse(function(player) attemptToPickupObject("SILPH_CO_7F_1_8", "CALCIUM") end)
-map.createObject(24, 6).setSprite("ball").onUse(function(player) attemptToPickupObject("SILPH_CO_7F_24_6", "TM 03") end)
+map.createObject(1, 8).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SILPH_CO_7F_1_8", "CALCIUM") end)
+map.createObject(24, 6).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SILPH_CO_7F_24_6", "TM 03") end)

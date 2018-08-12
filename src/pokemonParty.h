@@ -23,6 +23,9 @@ public:
     int getItemCount(int index) { if (index < 0 || index >= int(items.size())) return 0; return items[index].first; }
     void addItem(sp::string name);
     void removeItem(int index);
+
+    virtual void markAsSeen(sp::string name) { }
+    virtual void markAsOwned(sp::string name) { }
     
     bool hasAlivePokemon();
     

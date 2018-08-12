@@ -5,6 +5,7 @@ from PyQt5.QtGui import QImage
 
 names = []
 pallete_names = []
+pokedex = {}
 moves = {}
 palletes = {}
 type_vs_type = {}
@@ -16,6 +17,44 @@ for line in z.open("pokered-master/constants/pokedex_constants.asm"):
     if m:
         names.append(m.group(1))
 assert len(names) == 151
+
+f = z.open("pokered-master/data/pokedex_entries.asm")
+for line in f:
+    line = line.strip()
+    m = re.match(b"([A-Za-z_]+)DexEntry:", line)
+    if not m:
+        continue
+    name = m.group(1).upper().decode('utf-8')
+    if name == "MISSINGNO":
+        continue
+    species = re.match("db \"([^\"@]+)@\"", f.readline().strip().decode('utf-8')).group(1)
+    m = re.match("db ([0-9]+),([0-9]+)", f.readline().strip().decode('utf-8'))
+    height = "%s#FEET%s#INCH" % (m.group(1), m.group(2))
+    weight = "%.1flb" % (int(re.match("dw ([0-9]+)", f.readline().strip().decode('utf-8')).group(1)) / 10)
+    pokedex[name] = {
+        "species": species,
+        "height": height,
+        "weight": weight,
+    }
+f.close()
+f = z.open("pokered-master/text/pokedex.asm")
+for line in f:
+    line = line.strip()
+    m = re.match(b"_([A-Za-z_]+)DexEntry::", line)
+    if not m:
+        continue
+    name = m.group(1).upper().decode('utf-8').upper()
+    text = ""
+    while True:
+        line = f.readline().strip().decode('utf-8')
+        if line == "dex":
+            break
+        if line == "":
+            continue
+        line = re.search("\"([^\"]+)\"", line).group(1).replace("#", "POKE")
+        text += line + "\n"
+    pokedex[name]["pokedex"] = text.strip()
+f.close()
 
 for line in z.open("pokered-master/data/super_palettes.asm"):
     line = line.strip()
@@ -99,7 +138,6 @@ for stats_file in filter(lambda n: n.startswith("pokered-master/data/baseStats/"
     if line == b"MonBaseStats:\n": line = f.readline()
     if line == b"MewBaseStats:\n": line = f.readline()
     name = re.match(b"db DEX_([A-Z_]+) ", line).group(1)
-    #print(name, names.index(name))
 
     data = {}
     pokemon[name] = data
@@ -114,7 +152,7 @@ for stats_file in filter(lambda n: n.startswith("pokered-master/data/baseStats/"
     data["type2"] = re.match(b"db ([A-Z]+) ", f.readline()).group(1)
     data["catch_rate"] = int(re.match(b"db ([0-9]+) ", f.readline()).group(1))
     data["exp_rate"] = int(re.match(b"db ([0-9]+) ", f.readline()).group(1))
-    
+
     image_filename = re.match(b"INCBIN \"pic/bmon/([a-z\.]+).pic\",0,1", f.readline()).group(1).decode("ascii")
     front_image = QImage.fromData(z.open("pokered-master/pic/bmon/" + image_filename + ".png").read()).convertToFormat(QImage.Format_Indexed8)
     back_image = QImage.fromData(z.open("pokered-master/pic/monback/" + image_filename + "b.png").read()).convertToFormat(QImage.Format_Indexed8)
@@ -257,6 +295,11 @@ for name in names:
             f.write("    evolution: %s, TRADE\n" % (data["evolution"]["target"].decode("ascii")))
         if "items" in data["evolution"]:
             pass # TODOf.write("    evolution: %s, TRADE\n" % (data["evolution"]["target"].decode("ascii")))
+    dex = pokedex[name.decode('utf-8').replace("_", "")]
+    f.write("    pokedex: %s\n" % (dex["pokedex"].replace("\n", "\\\n        ")))
+    f.write("    species: %s\n" % (dex["species"]))
+    f.write("    height: %s\n" % (dex["height"]))
+    f.write("    weight: %s\n" % (dex["weight"]))
     f.write("}\n")
 f.close()
 

@@ -698,7 +698,7 @@ for name in sorted(object_data.keys()):
         elif len(object["other"]) == 2 and name != "BLUES_HOUSE":
             flag_name = "%s_%d_%d" % (name, x, y)
             item_name = object["other"][1].replace("_", " ")
-            f.write(".onUse(function(player) attemptToPickupObject(\"%s\", \"%s\") end)" % (flag_name, item_name))
+            f.write(".onUse(function(player) attemptToPickupObject(player, \"%s\", \"%s\") end)" % (flag_name, item_name))
         else:
             f.write("--[[%s--]]" % object["other"])
         f.write("\n")

@@ -27,8 +27,8 @@ map.createObject(17, 14).onTouch(function(player) possiblyBattleVICTORY_ROAD_3_1
 function possiblyBattleVICTORY_ROAD_3_13_14(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "VICTORY_ROAD_3_13_14", "COOLTRAINER#FEMALE", "cooltrainerf", {{43, "PARASECT"}, {43, "DEWGONG"}, {43, "CHANSEY"}}, 'Trainers live to\nseek stronger\nopponents!', 'By fighting tough\nbattles, you get\nstronger!', 'Oh!\nSo strong!')
 end
-map.createObject(26, 12).setSprite("ball").onUse(function(player) attemptToPickupObject("VICTORY_ROAD_3_26_12", "MAX REVIVE") end)
-map.createObject(7, 10).setSprite("ball").onUse(function(player) attemptToPickupObject("VICTORY_ROAD_3_7_10", "TM 47") end)
+map.createObject(26, 12).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VICTORY_ROAD_3_26_12", "MAX REVIVE") end)
+map.createObject(7, 10).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VICTORY_ROAD_3_7_10", "TM 47") end)
 map.createObject(22, 14).setSprite("boulder")--[[['7 ; person']--]]
 map.createObject(13, 5).setSprite("boulder")--[[['8 ; person']--]]
 map.createObject(24, 7).setSprite("boulder")--[[['9 ; person']--]]

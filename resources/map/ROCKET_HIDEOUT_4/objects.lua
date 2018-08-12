@@ -12,8 +12,8 @@ map.createObject(11, 20).onTouch(function(player) possiblyBattleROCKET_HIDEOUT_4
 function possiblyBattleROCKET_HIDEOUT_4_11_21(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROCKET_HIDEOUT_4_11_21", "ROCKET", "rocket", {{21, "KOFFING"}, {21, "ZUBAT"}}, "The elevator\ndoesn't work? Who\nhas the LIFT KEY?", 'Oh no! I dropped\nthe LIFT KEY!', 'No!')
 end
-map.createObject(10, 11).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_4_10_11", "HP UP") end)
-map.createObject(9, 19).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_4_9_19", "TM 02") end)
-map.createObject(12, 3).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_4_12_3", "IRON") end)
-map.createObject(25, 21).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_4_25_21", "SILPH SCOPE") end)
-map.createObject(10, 21).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_4_10_21", "LIFT KEY") end)
+map.createObject(10, 11).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_4_10_11", "HP UP") end)
+map.createObject(9, 19).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_4_9_19", "TM 02") end)
+map.createObject(12, 3).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_4_12_3", "IRON") end)
+map.createObject(25, 21).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_4_25_21", "SILPH SCOPE") end)
+map.createObject(10, 21).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_4_10_21", "LIFT KEY") end)

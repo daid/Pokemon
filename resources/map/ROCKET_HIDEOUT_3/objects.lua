@@ -12,5 +12,5 @@ map.createObject(26, 19).onTouch(function(player) possiblyBattleROCKET_HIDEOUT_3
 function possiblyBattleROCKET_HIDEOUT_3_26_15(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROCKET_HIDEOUT_3_26_15", "ROCKET", "rocket", {{21, "MACHOP"}, {21, "MACHOP"}}, 'We got word from\nupstairs that you\nwere coming!', 'Go ahead and go!\nBut, you need the\nLIFT KEY to run\nthe elevator!', 'What?\nI lost? No!')
 end
-map.createObject(26, 10).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_3_26_10", "TM 10") end)
-map.createObject(20, 13).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_3_20_13", "RARE CANDY") end)
+map.createObject(26, 10).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_3_26_10", "TM 10") end)
+map.createObject(20, 13).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_3_20_13", "RARE CANDY") end)

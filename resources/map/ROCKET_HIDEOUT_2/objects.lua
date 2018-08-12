@@ -6,7 +6,7 @@ map.createObject(20, 11).onTouch(function(player) possiblyBattleROCKET_HIDEOUT_2
 function possiblyBattleROCKET_HIDEOUT_2_20_15(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROCKET_HIDEOUT_2_20_15", "ROCKET", "rocket", {{17, "ZUBAT"}, {17, "KOFFING"}, {17, "GRIMER"}, {17, "ZUBAT"}, {17, "RATICATE"}}, 'BOSS said you can\nsee GHOSTs with\nthe SILPH SCOPE!', 'The TEAM ROCKET\nHQ has 4 basement\nfloors. Can you\nreach the BOSS?', 'I\nsurrender!')
 end
-map.createObject(1, 16).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_2_1_16", "MOON STONE") end)
-map.createObject(16, 19).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_2_16_19", "NUGGET") end)
-map.createObject(6, 15).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_2_6_15", "TM 07") end)
-map.createObject(3, 6).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_2_3_6", "SUPER POTION") end)
+map.createObject(1, 16).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_2_1_16", "MOON STONE") end)
+map.createObject(16, 19).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_2_16_19", "NUGGET") end)
+map.createObject(6, 15).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_2_6_15", "TM 07") end)
+map.createObject(3, 6).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_2_3_6", "SUPER POTION") end)

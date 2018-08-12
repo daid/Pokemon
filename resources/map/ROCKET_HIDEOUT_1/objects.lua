@@ -31,5 +31,5 @@ map.createObject(25, 9).onTouch(function(player) possiblyBattleROCKET_HIDEOUT_1_
 function possiblyBattleROCKET_HIDEOUT_1_28_9(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "ROCKET_HIDEOUT_1_28_9", "ROCKET", "rocket", {{22, "GRIMER"}, {22, "KOFFING"}}, 'Are you lost, you\nlittle rat?', 'Uh-oh, that fight\nopened the door!', 'Why...?@@')
 end
-map.createObject(11, 13).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_1_11_13", "ESCAPE ROPE") end)
-map.createObject(9, 10).setSprite("ball").onUse(function(player) attemptToPickupObject("ROCKET_HIDEOUT_1_9_10", "HYPER POTION") end)
+map.createObject(11, 13).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_1_11_13", "ESCAPE ROPE") end)
+map.createObject(9, 10).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "ROCKET_HIDEOUT_1_9_10", "HYPER POTION") end)

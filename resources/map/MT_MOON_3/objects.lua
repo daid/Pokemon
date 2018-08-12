@@ -37,7 +37,7 @@ function possiblyBattleMT_MOON_3_29_18(player, is_talked_to)
 end
 map.createObject(11, 29).setSprite("omanyte")--[[['6 ; person']--]]
 map.createObject(14, 29).setSprite("omanyte")--[[['7 ; person']--]]
-map.createObject(25, 14).setSprite("ball").onUse(function(player) attemptToPickupObject("MT_MOON_3_25_14", "HP UP") end)
-map.createObject(29, 30).setSprite("ball").onUse(function(player) attemptToPickupObject("MT_MOON_3_29_30", "TM 01") end)
+map.createObject(25, 14).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "MT_MOON_3_25_14", "HP UP") end)
+map.createObject(29, 30).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "MT_MOON_3_29_30", "TM 01") end)
 map.setAlwaysWildEncounters()
 map.setWildPokemon({0, 0}, {39, 35}, 0.0392157).type("LAND").add(51, 9, "ZUBAT").add(51, 9, "GEODUDE").add(39, 10, "ZUBAT").add(25, 10, "GEODUDE").add(25, 11, "ZUBAT").add(25, 10, "PARAS").add(13, 12, "PARAS").add(13, 10, "CLEFAIRY").add(11, 12, "ZUBAT").add(3, 12, "CLEFAIRY")

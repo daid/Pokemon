@@ -22,6 +22,6 @@ map.createObject(26, 11).onTouch(function(player) possiblyBattleSILPH_CO_4F_26_7
 function possiblyBattleSILPH_CO_4F_26_7(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "SILPH_CO_4F_26_7", "ROCKET", "rocket", {{28, "EKANS"}, {28, "ZUBAT"}, {28, "CUBONE"}}, 'Intruder spotted!', 'I better tell the\nBOSS on 11F!', 'Who\nare you?')
 end
-map.createObject(3, 8).setSprite("ball").onUse(function(player) attemptToPickupObject("SILPH_CO_4F_3_8", "FULL HEAL") end)
-map.createObject(4, 10).setSprite("ball").onUse(function(player) attemptToPickupObject("SILPH_CO_4F_4_10", "MAX REVIVE") end)
-map.createObject(5, 9).setSprite("ball").onUse(function(player) attemptToPickupObject("SILPH_CO_4F_5_9", "ESCAPE ROPE") end)
+map.createObject(3, 8).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SILPH_CO_4F_3_8", "FULL HEAL") end)
+map.createObject(4, 10).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SILPH_CO_4F_4_10", "MAX REVIVE") end)
+map.createObject(5, 9).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SILPH_CO_4F_5_9", "ESCAPE ROPE") end)

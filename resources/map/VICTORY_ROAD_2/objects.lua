@@ -33,10 +33,10 @@ function possiblyBattleVICTORY_ROAD_2_26_14(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "VICTORY_ROAD_2_26_14", "JUGGLER", "juggler", {{48, "MR_MIME"}}, 'Is VICTORY ROAD\ntoo tough?', 'Many trainers give\nup the challenge\nhere.', 'Well\ndone!')
 end
 map.createObject(11, 12).setSprite("bird").setDirection("UP")--[[['6', 'MOLTRES', '50']--]]
-map.createObject(27, 12).setSprite("ball").onUse(function(player) attemptToPickupObject("VICTORY_ROAD_2_27_12", "TM 17") end)
-map.createObject(18, 8).setSprite("ball").onUse(function(player) attemptToPickupObject("VICTORY_ROAD_2_18_8", "FULL HEAL") end)
-map.createObject(9, 6).setSprite("ball").onUse(function(player) attemptToPickupObject("VICTORY_ROAD_2_9_6", "TM 05") end)
-map.createObject(11, 17).setSprite("ball").onUse(function(player) attemptToPickupObject("VICTORY_ROAD_2_11_17", "GUARD SPEC") end)
+map.createObject(27, 12).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VICTORY_ROAD_2_27_12", "TM 17") end)
+map.createObject(18, 8).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VICTORY_ROAD_2_18_8", "FULL HEAL") end)
+map.createObject(9, 6).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VICTORY_ROAD_2_9_6", "TM 05") end)
+map.createObject(11, 17).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VICTORY_ROAD_2_11_17", "GUARD SPEC") end)
 map.createObject(4, 3).setSprite("boulder")--[[['11 ; person']--]]
 map.createObject(5, 12).setSprite("boulder")--[[['12 ; person']--]]
 map.createObject(23, 1).setSprite("boulder")--[[['13 ; person']--]]

@@ -25,10 +25,10 @@ function possiblyBattleSS_ANNE_9_2_4(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "SS_ANNE_9_2_4", "LASS", "lass", {{18, "RATTATA"}, {18, "PIKACHU"}}, 'I never saw you\nat the party.', 'Oh, I adore your\nstrong POKEMON!', 'Take\nit easy!')
 end
 map.createObject(1, 13).setSprite("gentleman").setDirection("DOWN")--[[['5 ; person']--]]
-map.createObject(12, 14).setSprite("ball").onUse(function(player) attemptToPickupObject("SS_ANNE_9_12_14", "MAX ETHER") end)
+map.createObject(12, 14).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SS_ANNE_9_12_14", "MAX ETHER") end)
 map.createObject(21, 13).setSprite("gentleman").setDirection("DOWN")--[[['7 ; person']--]]
 map.createObject(22, 14).setSprite("old_person").setDirection("DOWN")--[[['8 ; person']--]]
-map.createObject(0, 3).setSprite("ball").onUse(function(player) attemptToPickupObject("SS_ANNE_9_0_3", "RARE CANDY") end)
+map.createObject(0, 3).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SS_ANNE_9_0_3", "RARE CANDY") end)
 map.createObject(12, 3).setSprite("gentleman").setDirection("DOWN")--[[['10 ; person']--]]
 map.createObject(11, 1).setSprite("young_boy")--[[['11 ; person']--]]
 map.createObject(22, 3).setSprite("brunette_girl").setDirection("LEFT")--[[['12 ; person']--]]

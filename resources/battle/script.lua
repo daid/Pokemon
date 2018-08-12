@@ -61,6 +61,9 @@ function runBattle()
     local action = ACTION_MOVE | 0
     local enemy_action = ACTION_MOVE | 0
     while true do
+        player_party.markAsSeen(enemy.pokemon.className())
+        enemy_party.markAsSeen(player.pokemon.className())
+
         if player.pokemon.charge_move == nil then
             action = playerSelectAction(player.pokemon)
         end
@@ -169,7 +172,7 @@ function runBattle()
             showPokeballs(enemy_party)
             
             local new_index = nil
-            if playerQuestion(player_party, "Will " .. player_party.getTrainerName() .. "\n\nchange POKEMON?") then
+            if playerQuestion(player_party, "Will " .. player_party.getTrainerName() .. "\n\nchange POKEMON?", false) then
                 new_index = playerSelectPokemon(player_party)
             end
             popPokemonInView(enemy.pokemon, enemy_party.getTrainerName() .. " send\n\nout " .. enemy.pokemon.name())

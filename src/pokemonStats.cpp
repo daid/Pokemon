@@ -47,6 +47,7 @@ bool PokemonStats::hasType(Type type) const
 }
 
 std::unordered_map<sp::string, PokemonStats*> PokemonStats::data;
+std::unordered_map<int, PokemonStats*> PokemonStats::by_index;
 
 PokemonStats* PokemonStats::get(sp::string name)
 {
@@ -71,6 +72,12 @@ void PokemonStats::loadData()
         pokemon_stats->catch_rate = sp::stringutil::convert::toInt(it.second["catch_rate"]);
         pokemon_stats->base_exp = sp::stringutil::convert::toInt(it.second["base_exp"]);
         pokemon_stats->exp_table = sp::stringutil::convert::toInt(it.second["exp_table"]);
+
+        pokemon_stats->pokedex = it.second["pokedex"];
+        pokemon_stats->species = it.second["species"];
+        pokemon_stats->height = it.second["height"];
+        pokemon_stats->weight = it.second["weight"];
+
         for(int n=0; n<100; n++)
         {
             if (it.second.find("moves_" + sp::string(n)) != it.second.end())
@@ -88,5 +95,6 @@ void PokemonStats::loadData()
         //TODO: Evolution
 
         data[it.first] = pokemon_stats;
+        by_index[sp::stringutil::convert::toInt(it.second["index"])] = pokemon_stats;
     }
 }

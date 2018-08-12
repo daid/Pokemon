@@ -14,6 +14,9 @@ public:
     int getFlag(sp::string name) { auto it = stored_flags.find(name); if (it != stored_flags.end()) return it->second; return 0; }
     void setFlag(sp::string name, int value) { stored_flags[name] = value; }
     
+    virtual void markAsSeen(sp::string name) override { if (pokedex_flags.find(name) == pokedex_flags.end()) pokedex_flags[name] = 1; pokedex_flags[name] |= 1; }
+    virtual void markAsOwned(sp::string name) override { if (pokedex_flags.find(name) == pokedex_flags.end()) pokedex_flags[name] = 3; pokedex_flags[name] |= 3; }
+    
     sp::string restart_map;
     sp::Vector2i restart_position;
     int money;
@@ -36,7 +39,8 @@ private:
     int getMoney() { return money; }
     void setMoney(int amount) { money = amount; }
     
-    std::unordered_map<sp::string, int> stored_flags;
+    std::unordered_map<sp::string, int> stored_flags;   //General script flags, used to indicate battles done, and items picked up.
+    std::unordered_map<sp::string, int> pokedex_flags;  //Used to keep track on which pokemons you have seen, and owned.
 };
 
 #endif//PLAYER_PARTY_H

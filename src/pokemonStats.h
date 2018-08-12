@@ -32,6 +32,11 @@ public:
     int base_exp;
     int exp_table;
     
+    sp::string pokedex;
+    sp::string species;
+    sp::string height;
+    sp::string weight;
+    
     std::vector<std::pair<int, Move*>> moves_at_level;
     std::unordered_set<int> allowed_tm;
     
@@ -58,6 +63,7 @@ public:
 
 private:
     static std::unordered_map<sp::string, PokemonStats*> data;
+    static std::unordered_map<int, PokemonStats*> by_index;
 };
 
 #endif//POKEMON_STATS_H

@@ -175,7 +175,7 @@ end
 
 function basicPlayerDefeatedResult(player)
     healAllPokemon(player)
-    player.getParty.setMoney(math.ceil(player.getParty().getMoney() / 2))
+    player.getParty().setMoney(math.ceil(player.getParty().getMoney() / 2))
     player.teleportToRestartPosition()
 end
 
@@ -256,5 +256,15 @@ function shopkeeper(player, items)
             showMessage(player, "Thank you!")
             return
         end
+    end
+end
+
+function attemptToPickupObject(player, flag_name, item_name)
+    if player.getFlag(flag_name) > 0 then
+        showMessage(player, "You search, but\n\nno item was found.")
+    else
+        showMessage(player, "Found: " .. item_name)
+        player.setFlag(flag_name, 1)
+        player.getParty().addItem(item_name)
     end
 end

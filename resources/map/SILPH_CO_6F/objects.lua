@@ -22,5 +22,5 @@ map.createObject(12, 2).onTouch(function(player) possiblyBattleSILPH_CO_6F_14_2(
 function possiblyBattleSILPH_CO_6F_14_2(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "SILPH_CO_6F_14_2", "ROCKET", "rocket", {{28, "ZUBAT"}, {28, "ZUBAT"}, {28, "GOLBAT"}}, 'You dare betray\nTEAM ROCKET?', 'If you stand for\njustice, you\nbetray evil!', 'You\ntraitor!')
 end
-map.createObject(3, 5).setSprite("ball").onUse(function(player) attemptToPickupObject("SILPH_CO_6F_3_5", "HP UP") end)
-map.createObject(2, 2).setSprite("ball").onUse(function(player) attemptToPickupObject("SILPH_CO_6F_2_2", "X ACCURACY") end)
+map.createObject(3, 5).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SILPH_CO_6F_3_5", "HP UP") end)
+map.createObject(2, 2).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "SILPH_CO_6F_2_2", "X ACCURACY") end)

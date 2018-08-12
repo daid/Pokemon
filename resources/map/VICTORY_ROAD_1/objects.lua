@@ -10,8 +10,8 @@ map.createObject(3, 13).onTouch(function(player) possiblyBattleVICTORY_ROAD_1_3_
 function possiblyBattleVICTORY_ROAD_1_3_15(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "VICTORY_ROAD_1_3_15", "COOLTRAINER#MALE", "cooltrainerm", {{42, "IVYSAUR"}, {42, "WARTORTLE"}, {42, "CHARMELEON"}, {42, "CHARIZARD"}}, "I can see you're\ngood! Let me see\nexactly how good!", "I concede, you're\nbetter than me!", 'I\nhad a chance...')
 end
-map.createObject(11, 17).setSprite("ball").onUse(function(player) attemptToPickupObject("VICTORY_ROAD_1_11_17", "TM 43") end)
-map.createObject(9, 15).setSprite("ball").onUse(function(player) attemptToPickupObject("VICTORY_ROAD_1_9_15", "RARE CANDY") end)
+map.createObject(11, 17).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VICTORY_ROAD_1_11_17", "TM 43") end)
+map.createObject(9, 15).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VICTORY_ROAD_1_9_15", "RARE CANDY") end)
 map.createObject(5, 2).setSprite("boulder")--[[['5 ; person']--]]
 map.createObject(14, 15).setSprite("boulder")--[[['6 ; person']--]]
 map.createObject(2, 7).setSprite("boulder")--[[['7 ; person']--]]

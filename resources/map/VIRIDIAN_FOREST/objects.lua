@@ -20,9 +20,9 @@ map.createObject(1, 29).onTouch(function(player) possiblyBattleVIRIDIAN_FOREST_2
 function possiblyBattleVIRIDIAN_FOREST_2_29(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "VIRIDIAN_FOREST_2_29", "BUG CATCHER", "bugcatcher", {{9, "WEEDLE"}}, "Hey, wait up!\nWhat's the hurry?", 'Sometimes, you\ncan find stuff on\nthe ground!', "I\ngive! You're good\nat this!")
 end
-map.createObject(25, 36).setSprite("ball").onUse(function(player) attemptToPickupObject("VIRIDIAN_FOREST_25_36", "ANTIDOTE") end)
-map.createObject(12, 18).setSprite("ball").onUse(function(player) attemptToPickupObject("VIRIDIAN_FOREST_12_18", "POTION") end)
-map.createObject(1, 16).setSprite("ball").onUse(function(player) attemptToPickupObject("VIRIDIAN_FOREST_1_16", "POKE BALL") end)
+map.createObject(25, 36).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VIRIDIAN_FOREST_25_36", "ANTIDOTE") end)
+map.createObject(12, 18).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VIRIDIAN_FOREST_12_18", "POTION") end)
+map.createObject(1, 16).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VIRIDIAN_FOREST_1_16", "POKE BALL") end)
 map.createObject(27, 7).setSprite("bug_catcher")--[[['8 ; person']--]]
 map.setWildPokemon({0, 0}, {33, 47}, 0.0313725).type("LAND").mode("RED").add(51, 4, "WEEDLE").add(51, 5, "KAKUNA").add(39, 3, "WEEDLE").add(25, 5, "WEEDLE").add(25, 4, "KAKUNA").add(25, 6, "KAKUNA").add(13, 4, "METAPOD").add(13, 3, "CATERPIE").add(11, 3, "PIKACHU").add(3, 5, "PIKACHU")
 map.setWildPokemon({0, 0}, {33, 47}, 0.0313725).type("LAND").mode("BLUE").add(51, 4, "CATERPIE").add(51, 5, "METAPOD").add(39, 3, "CATERPIE").add(25, 5, "CATERPIE").add(25, 4, "METAPOD").add(25, 6, "METAPOD").add(13, 4, "KAKUNA").add(13, 3, "WEEDLE").add(11, 3, "PIKACHU").add(3, 5, "PIKACHU")

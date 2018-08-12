@@ -62,4 +62,4 @@ function possiblyBattleVIRIDIAN_GYM_6_12(player, is_talked_to)
     checkForTrainerBattle(player, is_talked_to, "VIRIDIAN_GYM_6_12", "COOLTRAINER#MALE", "cooltrainerm", {{39, "NIDORINO"}, {39, "NIDOKING"}}, 'VIRIDIAN GYM was\nclosed for a long\ntime, but now our\nLEADER is back!', 'You can go onto\nPOKEMON LEAGUE\nonly by defeating\nour GYM LEADER!', 'I\nwas beaten?')
 end
 map.createObject(16, 2).setSprite("gym_helper").setDirection("DOWN")--[[['10 ; person']--]]
-map.createObject(16, 8).setSprite("ball").onUse(function(player) attemptToPickupObject("VIRIDIAN_GYM_16_8", "REVIVE") end)
+map.createObject(16, 8).setSprite("ball").onUse(function(player) attemptToPickupObject(player, "VIRIDIAN_GYM_16_8", "REVIVE") end)
