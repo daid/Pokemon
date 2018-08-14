@@ -130,8 +130,83 @@ local function pokemonMenu(player)
     hideMessage(player)
 end
 
+local function pokedexEntry(player, index)
+    local name = getPokedexData(index, 0)
+    local flags = player.getParty().getPokedexFlags(name)
+    if flags == 0 then return end
+    
+    local ui = player.getWidget("POKEDEX_ENTRY")
+    ui.getWidget("IMAGE").setImage("gfx/front/" .. name .. ".png")
+    ui.getWidget("NO").caption("#NO." .. (index + 1))
+    ui.getWidget("NAME").caption(name)
+    if (flags & 2) == 2 then
+        ui.getWidget("SPECIES").caption(getPokedexData(index, 1))
+        ui.getWidget("HEIGHT").caption("HT " .. getPokedexData(index, 3))
+        ui.getWidget("WEIGHT").caption("WT " .. getPokedexData(index, 4))
+        ui.getWidget("INFO").caption(getPokedexData(index, 2))
+    else
+        ui.getWidget("SPECIES").caption("")
+        ui.getWidget("HEIGHT").caption("HT ?#INCH?#FEET")
+        ui.getWidget("WEIGHT").caption("WT ???lb")
+        ui.getWidget("INFO").caption("")
+    end
+    ui.show()
+    yield()
+    while not player.keyConfirm() and not player.keyCancel() do
+        yield()
+    end
+    ui.hide()
+end
+
 local function pokedexMenu(player)
-    showMessage(player, "Not implemented.")
+    local ui = player.getWidget("POKEDEX")
+    local view_index = 0
+    local cursor_index = 0
+    local function updateUI()
+        local lines = ""
+        if view_index > cursor_index then view_index = cursor_index end
+        if view_index < cursor_index - 6 then view_index = cursor_index - 6 end
+        for n=0,6 do
+            local idx = n + view_index
+            local name = getPokedexData(idx, 0)
+            local flags = player.getParty().getPokedexFlags(name)
+            if idx < 99 then lines = lines .. "0" end
+            if idx < 9 then lines = lines .. "0" end
+            lines = lines .. (idx + 1) .. "\n  "
+            if (flags & 2) == 2 then lines = lines .. "#BALL" else lines = lines .. " " end
+            if (flags & 1) == 1 then
+                lines = lines .. name .. "\n"
+            else
+                lines = lines .. "----------\n"
+            end
+        end
+        ui.getWidget("CURSOR").setOffset(0, (cursor_index - view_index) * 16)
+        ui.getWidget("ENTRIES").caption(lines)
+    end
+    
+    updateUI()
+    ui.show()
+    yield()
+    while true do
+        if player.keyDown() and cursor_index < 150 then
+            cursor_index = cursor_index + 1
+            updateUI()
+        end
+        if player.keyUp() and cursor_index > 0 then
+            cursor_index = cursor_index - 1
+            updateUI()
+        end
+        if player.keyConfirm() then
+            ui.hide()
+            pokedexEntry(player, cursor_index)
+            ui.show()
+        end
+        if player.keyCancel() then
+            ui.hide()
+            return
+        end
+        yield()
+    end
 end
 
 local function itemMenu(player)

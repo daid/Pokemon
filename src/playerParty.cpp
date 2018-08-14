@@ -131,4 +131,6 @@ void PlayerParty::onRegisterScriptBindings(sp::ScriptBindingClass& script_bindin
 
     script_binding_class.bind("getFlag", &PlayerParty::getFlag);
     script_binding_class.bind("setFlag", &PlayerParty::setFlag);
+    
+    script_binding_class.bind("getPokedexFlags", &PlayerParty::getPokedexFlags);
 }

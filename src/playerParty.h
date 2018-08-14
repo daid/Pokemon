@@ -19,6 +19,7 @@ public:
     
     virtual void markAsSeen(sp::string name) override { if (pokedex_flags.find(name) == pokedex_flags.end()) pokedex_flags[name] = 1; pokedex_flags[name] |= 1; }
     virtual void markAsOwned(sp::string name) override { if (pokedex_flags.find(name) == pokedex_flags.end()) pokedex_flags[name] = 3; pokedex_flags[name] |= 3; }
+    int getPokedexFlags(sp::string name) { if (pokedex_flags.find(name) != pokedex_flags.end()) return pokedex_flags[name]; return 0; }
 
     void saveGame(sp::KeyValueTreeNode& node);
     void loadGame(const sp::KeyValueTreeNode& node);

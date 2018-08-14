@@ -348,7 +348,7 @@
             type: label
             text_alignment: topleft
             size: 80, 128
-            position: 8, 8
+            position: 8, 16
         }
 
         [CURSOR] {
@@ -358,6 +358,77 @@
             margin: 0, 16
             size: 8, 16
             caption: >
+        }
+    }
+
+    [POKEDEX_ENTRY] {
+        stretch: true
+        #visible: false
+
+        {
+            type: panel
+            stretch: true
+            margin: -8
+            order: -10
+        }
+        
+        [IMAGE] {
+            type: image
+            size: 56, 56
+            alignment: topleft
+            margin: 8, 0
+            texture: gfx/front/NIDORAN_M.png
+        }
+
+        [NO] {
+            type: label
+            size: 56, 8
+            alignment: topleft
+            position: 8, 56
+            caption: #NO.123
+        }
+
+        [NAME] {
+            type: label
+            size: 80, 8
+            alignment: topright
+            text_alignment: left
+            caption: NAME123456
+            position: 0, 8
+        }
+
+        [SPECIES] {
+            type: label
+            size: 80, 8
+            alignment: topright
+            text_alignment: left
+            caption: SPECIES
+            position: 0, 24
+        }
+
+        [HEIGHT] {
+            type: label
+            size: 80, 8
+            alignment: topright
+            text_alignment: left
+            caption: HT  2#INCH12#FEET
+            position: 0, 40
+        }
+        [WEIGHT] {
+            type: label
+            size: 80, 8
+            alignment: topright
+            text_alignment: left
+            caption: WT  20lb
+            position: 0, 56
+        }
+
+        [INFO] {
+            type: label
+            size: 144, 64
+            alignment: bottomleft
+            text_alignment: topleft
+            position: 8, 0
         }
     }
     
