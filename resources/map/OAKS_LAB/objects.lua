@@ -36,12 +36,19 @@ map.createObject(7, 8).setSprite("ball").onUse(function(player) takePokemon(play
 map.createObject(8, 8).setSprite("ball").onUse(function(player) takePokemon(player, "BULBASAUR", "plant", 3) end)
 map.createObject(5, 9).setSprite("oak").setDirection("DOWN").onUse(function(player)
     if not hasPokemon(player) then
-        return showMessage(player, "Just pick your pokemon man!")
+        return showMessage(player, "Just pick your\n\nPOKEMON man!")
     end
     showMessage(player, "Raise your young\nPOKEMON by making\nit fight!")
+    showMessage(player, "This is totally\nlegal.\nTrust me.")
 end)
-map.createObject(2, 10).setSprite("book_map_dex")--[[['6 ; person']--]]
-map.createObject(3, 10).setSprite("book_map_dex")--[[['7 ; person']--]]
+map.createObject(2, 10).setSprite("book_map_dex").onUse(function(player) showMessage(player, "Old school!\nYour POKEDEX is\nmuch better!") end)
+map.createObject(3, 10).setSprite("book_map_dex").onUse(function(player) showMessage(player, "Old school!\nYour POKEDEX is\nmuch better!") end)
 map.createObject(1, 2).setSprite("girl")--[[.enableWander()--]]--[[['9 ; person']--]]
 map.createObject(2, 1).setSprite("oak_aide")--[[['10 ; person']--]]
 map.createObject(8, 1).setSprite("oak_aide")--[[['11 ; person']--]]
+
+--Computer
+map.createObject(0, 10).onUse(function(player) showMessage(player, "Animated POKEMON\n\nporn...") end)
+--Posters on the wall
+map.createObject(4, 11).onUse(function(player) showMessage(player, "A revoked POKEMON\n\nbreeder license.") end)
+map.createObject(5, 11).onUse(function(player) showMessage(player, "A warrent\n\nfor OAKS arrest.") end)

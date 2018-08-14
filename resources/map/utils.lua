@@ -82,13 +82,14 @@ function confirmQuestion(player, question)
     end
 end
 
-function choiceMenu(player, options)
+function choiceMenu(player, options, menu_width)
+    menu_width = menu_width or 144
     local ui = player.getWidget("CHOICE_MENU")
     ui.show()
     local options_text = ""
     for n=1,#options do options_text = options_text .. options[n] .. "\n" end
     ui.getWidget("LABEL").caption(options_text)
-    ui.size(144, #options * 8 + 16)
+    ui.size(menu_width, #options * 8 + 16)
     local index = 1
     local cursor = ui.getWidget("CURSOR")
     cursor.setOffset(0, (index - 1) * 8)
@@ -168,8 +169,10 @@ function checkForTrainerBattle(player, is_talked_to, flag_name, trainer_name, tr
     if yield() then
         player.setFlag(flag_name, flag + 1)
         showMessage(player, done_battle_text)
+        return true
     else
         basicPlayerDefeatedResult(player)
+        return false
     end
 end
 

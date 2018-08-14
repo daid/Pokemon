@@ -91,6 +91,11 @@ void PlayerPawn::onFixedUpdate()
             if (obj)
                 obj->onUse(this);
         }
+        if (!active_coroutine && controller.menu.getDown())
+        {
+            sp::P<MapScene> scene = getScene();
+            active_coroutine = scene->runGlobalFunctionForPlayer("openMainMenu", this);
+        }
     }
 }
 

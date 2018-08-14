@@ -1,5 +1,48 @@
 [GUI] {
     stretch: true
+
+    [SELECT_POKEMON] {
+        visible: false
+        fill_width: true
+        size: 100, 96
+
+        {
+            type: panel
+            stretch: true
+            margin: -8
+        }
+
+        [CURSOR] {
+            type: label
+            text_alignment: bottomleft
+            position: 0, 0
+            size: 8, 16
+            caption: >
+        }
+        
+        {
+            stretch: true
+            layout: vertical
+            [ROW0] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW1] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW2] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW3] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW4] {
+                @ref: SELECT_POKEMON_ROW
+            }
+            [ROW5] {
+                @ref: SELECT_POKEMON_ROW
+            }
+        }
+    }
     
     [MESSAGE_BOX] {
         type: panel
@@ -82,5 +125,52 @@
             size: 8, 8
             caption: >
         }
+    }
+}
+
+[@SELECT_POKEMON_ROW] {
+    fill_width: true
+    size: 100, 16
+    [ICON] {
+        type: image
+        texture: gfx/sprite/ball.png
+        position: 8, 0
+        size: 16, 16
+    }
+    [NAME] {
+        type: label
+        position: 24, 0
+        size: 80, 8
+        caption: 1234512345
+        text_alignment: topleft
+    }
+    {
+        type: label
+        position: 32, 8
+        size: 16, 8
+        caption: #HP
+        text_alignment: topleft
+    }
+    [HP] {
+        type: progressbar
+        alignment: topleft
+        margin: 46, 8
+        size: 50, 8
+    }
+    [LEVEL] {
+        type: label
+        alignment: topleft
+        text_alignment: left
+        margin: 104, 0
+        size: 0, 8
+        caption: #LVL12
+    }
+    [HP_LABEL] {
+        type: label
+        alignment: topleft
+        text_alignment: left
+        margin: 104, 8
+        size: 0, 8
+        caption: 123/123
     }
 }

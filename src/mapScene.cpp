@@ -75,6 +75,7 @@ MapScene::MapScene(sp::string name)
     script_environment->setGlobal("yield", luaf_yield);
     script_environment->setGlobal("createParty", luaf_createParty);
     script_environment->load(sp::io::ResourceProvider::get("map/utils.lua"));
+    script_environment->load(sp::io::ResourceProvider::get("map/mainmenu.lua"));
     script_environment->load(sp::io::ResourceProvider::get("map/" + name + "/warps.lua"));
     script_environment->load(sp::io::ResourceProvider::get("map/" + name + "/objects.lua"));
 }

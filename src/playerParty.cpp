@@ -9,6 +9,11 @@ PlayerParty::PlayerParty(InputController& controller)
     restart_position = sp::Vector2i(3, 1);
     game_type = "RED";
 
+    addItem("POKE BALL");
+    addItem("POKE BALL");
+    addItem("POKE BALL");
+    addItem("POTION ");
+    
     money = 3000;
 }
 

@@ -14,7 +14,7 @@ public:
     , confirm(sp::string(index) + "_confirm", "Space")
     , cancel(sp::string(index) + "_cancel", "Z")
     , extra0(sp::string(index) + "_extra0", "X")
-    , extra1(sp::string(index) + "_extra1", "C")
+    , menu(sp::string(index) + "_menu", "C")
     , extra2(sp::string(index) + "_extra2", "V")
     , extra3(sp::string(index) + "_extra3", "B")
     , start(sp::string(index) + "_start", "Num1")
@@ -28,7 +28,7 @@ public:
             confirm.setKey("Q");
             cancel.setKey("E");
             extra0.setKey("R");
-            extra1.setKey("F");
+            menu.setKey("F");
             extra2.setKey("T");
             extra3.setKey("G");
             start.setKey("Num2");
@@ -42,7 +42,7 @@ public:
     sp::io::Keybinding confirm;
     sp::io::Keybinding cancel;
     sp::io::Keybinding extra0;
-    sp::io::Keybinding extra1;
+    sp::io::Keybinding menu;
     sp::io::Keybinding extra2;
     sp::io::Keybinding extra3;
     sp::io::Keybinding start;
