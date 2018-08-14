@@ -225,7 +225,7 @@ function executeMove(source, target, move)
     elseif effect == "SLEEP" then
         if random(0, 99) < effect_power and target.getAsleepTurns() < 1 then
             showMessage(target.name() .. "\n\nfell asleep!")
-            target.setAsleep(irandom(1, 7))
+            target.setAsleep(random(1, 7))
         elseif power < 1 then
             showMessage("Nothing happened!")
         end

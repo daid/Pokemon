@@ -363,7 +363,7 @@
 
     [POKEDEX_ENTRY] {
         stretch: true
-        #visible: false
+        visible: false
 
         {
             type: panel

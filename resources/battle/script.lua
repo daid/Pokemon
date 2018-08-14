@@ -8,7 +8,7 @@ include("item.lua")
 
 function findUsablePokemonIndex(party)
     for n=0,5 do
-        if party.get(n) ~= nil then
+        if party.get(n) ~= nil and party.get(n).getHP() > 0 then
             return n
         end
     end
