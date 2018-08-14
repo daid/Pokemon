@@ -4,6 +4,9 @@
 #include "pokemonParty.h"
 #include "inputController.h"
 
+#include <sp2/keyValueTree.h>
+
+
 class PlayerParty : public PokemonParty
 {
 public:
@@ -16,6 +19,9 @@ public:
     
     virtual void markAsSeen(sp::string name) override { if (pokedex_flags.find(name) == pokedex_flags.end()) pokedex_flags[name] = 1; pokedex_flags[name] |= 1; }
     virtual void markAsOwned(sp::string name) override { if (pokedex_flags.find(name) == pokedex_flags.end()) pokedex_flags[name] = 3; pokedex_flags[name] |= 3; }
+
+    void saveGame(sp::KeyValueTreeNode& node);
+    void loadGame(const sp::KeyValueTreeNode& node);
     
     sp::string restart_map;
     sp::Vector2i restart_position;

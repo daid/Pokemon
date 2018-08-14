@@ -5,7 +5,9 @@
 #include "inputController.h"
 #include "direction.h"
 
+#include <sp2/keyValueTree.h>
 #include <sp2/graphics/gui/scene.h>
+
 
 class WildPokemonArea;
 class PlayerInfo;
@@ -18,6 +20,9 @@ public:
     PlayerPawn(sp::P<sp::Node> parent, sp::P<PlayerInfo> player_info, InputController& controller, sp::string sprite, sp::P<sp::gui::RootWidget> root_widget);
 
     virtual void onFixedUpdate() override;
+    
+    void saveGame(sp::KeyValueTreeNode& node);
+    void loadGame(sp::KeyValueTreeNode& node);
 
     bool active = true;
     sp::script::CoroutinePtr active_coroutine;

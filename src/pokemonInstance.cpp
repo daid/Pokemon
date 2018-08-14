@@ -4,6 +4,8 @@
 
 #include <sp2/logging.h>
 #include <sp2/random.h>
+#include <sp2/stringutil/convert.h>
+
 
 PokemonInstance::PokemonInstance(sp::string type, int level, bool wild)
 : stats(*PokemonStats::get(type))
@@ -213,6 +215,81 @@ int PokemonInstance::MoveData::getMaxPP()
     if (!move)
         return 0;
     return move->pp + (move->pp * pp_up / 5);
+}
+
+void PokemonInstance::saveGame(sp::KeyValueTreeNode& node)
+{
+    node.items["type"] = stats.name;
+    
+    node.items["name"] = name;
+    node.items["hp"] = sp::string(hp);
+    node.items["exp"] = sp::string(exp);
+    node.items["asleep"] = sp::string(asleep);
+    node.items["poisoned"] = poisoned ? "true" : "false";
+    node.items["burned"] = burned ? "true" : "false";
+    node.items["frozen"] = frozen ? "true" : "false";
+    node.items["paralyzed"] = paralyzed ? "true" : "false";
+    
+    node.items["ev_hp"] = sp::string(ev.hp);
+    node.items["ev_attack"] = sp::string(ev.attack);
+    node.items["ev_defense"] = sp::string(ev.defense);
+    node.items["ev_speed"] = sp::string(ev.speed);
+    node.items["ev_special"] = sp::string(ev.special);
+
+    node.items["iv_hp"] = sp::string(iv.hp);
+    node.items["iv_attack"] = sp::string(iv.attack);
+    node.items["iv_defense"] = sp::string(iv.defense);
+    node.items["iv_speed"] = sp::string(iv.speed);
+    node.items["iv_special"] = sp::string(iv.special);
+    
+    node.child_nodes.emplace_back("moves");
+    sp::KeyValueTreeNode& moves_node = node.child_nodes.back();
+    for(int n=0; n<max_moves; n++)
+    {
+        if (!moves[n].move)
+            continue;
+        moves_node.child_nodes.emplace_back();
+        sp::KeyValueTreeNode& i = moves_node.child_nodes.back();
+        i.items["move"] = sp::string(moves[n].move->name);
+        i.items["pp"] = sp::string(moves[n].pp);
+        i.items["pp_up"] = sp::string(moves[n].pp_up);
+    }
+}
+
+void PokemonInstance::loadGame(const sp::KeyValueTreeNode& node)
+{
+    name = node.items.at("name");
+    hp = sp::stringutil::convert::toInt(node.items.at("hp"));
+    exp = sp::stringutil::convert::toInt(node.items.at("exp"));
+    asleep = sp::stringutil::convert::toInt(node.items.at("asleep"));
+    poisoned = sp::stringutil::convert::toBool(node.items.at("poisoned"));
+    burned = sp::stringutil::convert::toBool(node.items.at("burned"));
+    frozen = sp::stringutil::convert::toBool(node.items.at("frozen"));
+    paralyzed = sp::stringutil::convert::toBool(node.items.at("paralyzed"));
+    
+    ev.hp = sp::stringutil::convert::toInt(node.items.at("ev_hp"));
+    ev.attack = sp::stringutil::convert::toInt(node.items.at("ev_attack"));
+    ev.defense = sp::stringutil::convert::toInt(node.items.at("ev_defense"));
+    ev.speed = sp::stringutil::convert::toInt(node.items.at("ev_speed"));
+    ev.special = sp::stringutil::convert::toInt(node.items.at("ev_special"));
+
+    iv.hp = sp::stringutil::convert::toInt(node.items.at("iv_hp"));
+    iv.attack = sp::stringutil::convert::toInt(node.items.at("iv_attack"));
+    iv.defense = sp::stringutil::convert::toInt(node.items.at("iv_defense"));
+    iv.speed = sp::stringutil::convert::toInt(node.items.at("iv_speed"));
+    iv.special = sp::stringutil::convert::toInt(node.items.at("iv_special"));
+    
+    for(int n=0; n<max_moves; n++)
+        moves[n].move = nullptr;
+    const sp::KeyValueTreeNode* moves_node = node.findId("moves");
+    int index = 0;
+    for(auto& node : moves_node->child_nodes)
+    {
+        moves[index].move = Move::get(node.items.at("move"));
+        moves[index].pp = sp::stringutil::convert::toInt(node.items.at("pp"));
+        moves[index].pp_up = sp::stringutil::convert::toInt(node.items.at("pp_up"));
+        index++;
+    }
 }
 
 void PokemonInstance::onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class)

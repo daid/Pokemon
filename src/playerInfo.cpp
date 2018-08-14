@@ -6,6 +6,8 @@
 #include "playerParty.h"
 
 #include <sp2/scene/camera.h>
+#include <sp2/io/keyValueTreeLoader.h>
+#include <sp2/io/keyValueTreeSaver.h>
 
 PlayerInfo::PlayerInfo(sp::P<sp::Window> window, int index, InputController& input)
 : sp::Scene("PLAYER_INFO_" + sp::string(index)), input(input)
@@ -84,4 +86,24 @@ void PlayerInfo::onFixedUpdate()
             createPawnCamera();
         }
     }
+}
+
+void PlayerInfo::saveGame(sp::string filename)
+{
+    sp::KeyValueTreePtr tree = std::make_shared<sp::KeyValueTree>();
+    tree->root_nodes.emplace_back("pawn");
+    pawn->saveGame(tree->root_nodes.back());
+    tree->root_nodes.emplace_back("party");
+    party->saveGame(tree->root_nodes.back());
+    
+    sp::io::KeyValueTreeSaver::save(filename, tree);
+}
+
+void PlayerInfo::loadGame(sp::string filename)
+{
+    sp::KeyValueTreePtr tree = sp::io::KeyValueTreeLoader::load(filename);
+    if (!tree)
+        return;
+    pawn->loadGame(*tree->findId("pawn"));
+    party->loadGame(*tree->findId("party"));
 }

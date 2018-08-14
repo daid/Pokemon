@@ -25,6 +25,8 @@ public:
 
     virtual void onFixedUpdate() override;
 
+    void saveGame(sp::string filename);
+    void loadGame(sp::string filename);
 protected:
     void createPawnCamera();
 private:

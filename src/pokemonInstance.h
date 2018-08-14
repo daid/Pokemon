@@ -3,6 +3,7 @@
 
 #include "PokemonStats.h"
 
+#include <sp2/keyValueTree.h>
 #include <sp2/script/bindingObject.h>
 
 /**
@@ -44,6 +45,9 @@ public:
     sp::string getMoveEffect(int index);
     sp::string getMoveEffectStat(int index);
     int getMovePower(int index);
+
+    void saveGame(sp::KeyValueTreeNode& node);
+    void loadGame(const sp::KeyValueTreeNode& node);
 
     const PokemonStats& stats;
     

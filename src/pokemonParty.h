@@ -5,6 +5,7 @@
 
 #include <sp2/script/bindingObject.h>
 
+
 class PokemonParty : public sp::ScriptBindingObject
 {
 public:
@@ -29,16 +30,16 @@ public:
     
     bool hasAlivePokemon();
     
-    sp::string trainer_name;
-    sp::string trainer_image;
-    
     sp::P<PokemonInstance> getPartyMember(int index);
     sp::P<PokemonInstance> createPokemon(sp::string name, int level);
     bool copyPokemon(sp::P<PokemonInstance> instance); //Returns true if placed in the party, false if placed in the backup list.
+
+    sp::string trainer_name;
+    sp::string trainer_image;
     
     sp::P<PokemonInstance> party[party_size];
-    std::vector<std::pair<int, sp::string>> items;
     sp::PList<PokemonInstance> backup_list;
+    std::vector<std::pair<int, sp::string>> items;
 };
 
 #endif//POKEMON_PARTY_H

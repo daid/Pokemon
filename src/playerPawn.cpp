@@ -196,6 +196,18 @@ sp::P<PlayerParty> PlayerPawn::getParty()
     return player_info->getParty();
 }
 
+void PlayerPawn::saveGame(sp::KeyValueTreeNode& node)
+{
+    node.items["x"] = sp::string(int(getPosition2D().x));
+    node.items["y"] = sp::string(int(getPosition2D().y));
+    node.items["map"] = getScene()->getName();
+}
+
+void PlayerPawn::loadGame(sp::KeyValueTreeNode& node)
+{
+    teleportTo(node.items["map"], sp::stringutil::convert::toInt(node.items["x"]), sp::stringutil::convert::toInt(node.items["y"]));
+}
+
 void PlayerPawn::onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class)
 {
     script_binding_class.bind("keyUp", &PlayerPawn::keyUp);

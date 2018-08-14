@@ -36,6 +36,7 @@ int main(int argc, char** argv)
     sp::P<sp::Engine> engine = new sp::Engine();
 
     new sp::io::DirectoryResourceProvider("resources");
+    new sp::io::DirectoryResourceProvider("saves");
     sp::texture_manager.setDefaultSmoothFiltering(false);
 
     sp::gui::Theme::loadTheme("default", "gui/theme/basic.theme.txt");
@@ -48,9 +49,11 @@ int main(int argc, char** argv)
     InputController controller1(1);
     
     sp::P<PlayerInfo> player_info0 = new PlayerInfo(window, 0, controller0);
+    player_info0->loadGame("test.save");
     
     //player_info0->setViewport(sp::Rect2d(0, 0, 0.5, 1.0));
     //PlayerInfo player_info1(window, 1, controller1);
     //player_info1.setViewport(sp::Rect2d(0.5, 0, 0.5, 1.0));
     engine->run();
+    player_info0->saveGame("saves/test.save");
 }
