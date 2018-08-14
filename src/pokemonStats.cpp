@@ -54,12 +54,18 @@ PokemonStats* PokemonStats::get(sp::string name)
     return data[name];
 }
 
+PokemonStats* PokemonStats::get(int index)
+{
+    return by_index[index];
+}
+
 void PokemonStats::loadData()
 {
     for(auto& it : sp::io::KeyValueTreeLoader::load("stats.txt")->getFlattenNodesByIds())
     {
         PokemonStats* pokemon_stats = new PokemonStats();
         pokemon_stats->name = it.first;
+        pokemon_stats->index = sp::stringutil::convert::toInt(it.second["index"]);
         pokemon_stats->base.hp = sp::stringutil::convert::toInt(it.second["hp"]);
         pokemon_stats->base.attack = sp::stringutil::convert::toInt(it.second["attack"]);
         pokemon_stats->base.defense = sp::stringutil::convert::toInt(it.second["defense"]);
@@ -95,6 +101,6 @@ void PokemonStats::loadData()
         //TODO: Evolution
 
         data[it.first] = pokemon_stats;
-        by_index[sp::stringutil::convert::toInt(it.second["index"])] = pokemon_stats;
+        by_index[pokemon_stats->index] = pokemon_stats;
     }
 }

@@ -55,9 +55,17 @@ function showMessage(player, message)
     player.getWidget("MESSAGE_BOX").hide()
 end
 
-function confirmQuestion(player, question)
+function displayMessage(player, message)
     player.getWidget("MESSAGE_BOX").show()
-    player.getWidget("MESSAGE_BOX_LABEL").caption(question)
+    player.getWidget("MESSAGE_BOX_LABEL").caption(message)
+end
+
+function hideMessage(player)
+    player.getWidget("MESSAGE_BOX").hide()
+end
+
+function confirmQuestion(player, question)
+    displayMessage(player, question)
     player.getWidget("CONFIRM_BOX").show()
     local selection = true
     local cursor = player.getWidget("CONFIRM_CURSOR")
@@ -187,19 +195,19 @@ function pokecenterNurse(player)
     showMessage(player, "We heal your\nPOKEMONMON back to\nperfect health!")
     if confirmQuestion(player, "Shall we heal your\n\nPOKEMON?") then
         showMessage(player, "OK. We'll need\n\nyour POKEMON.")
-        healAllPokemon(player)
         
-        player.getWidget("MESSAGE_BOX").show()
-        player.getWidget("MESSAGE_BOX_LABEL").caption(".")
+        displayMessage(player, ".")
         for n=0,60 do yield() end
-        player.getWidget("MESSAGE_BOX_LABEL").caption("..")
+        displayMessage(player, "..")
         for n=0,60 do yield() end
-        player.getWidget("MESSAGE_BOX_LABEL").caption("...")
+        displayMessage(player, "...")
         for n=0,60 do yield() end
-        player.getWidget("MESSAGE_BOX_LABEL").caption("....")
+        displayMessage(player, "....")
         for n=0,60 do yield() end
 
+        healAllPokemon(player)
         player.setRestartPosition()
+
         showMessage(player, "Thank you!\nYour POKEMON are\nfighting fit!")
     end
     showMessage(player, "We hope to see\n\nyou again!")
@@ -216,8 +224,7 @@ function shopkeeper(player, items)
         local option = choiceMenu(player, {"BUY", "SELL", "QUIT"})
         if option == 1 then
             showMessage(player, "Take your time.")
-            player.getWidget("MESSAGE_BOX").show()
-            player.getWidget("MESSAGE_BOX_LABEL").caption("$" .. party.getMoney())
+            displayMessage(player, "$" .. party.getMoney())
             option = choiceMenu(player, buy_list)
             if option and option < #buy_list then
                 if item_value[items[option]] > party.getMoney() then
@@ -228,7 +235,7 @@ function shopkeeper(player, items)
                     party.setMoney(party.getMoney() - item_value[items[option]])
                 end
             end
-            player.getWidget("MESSAGE_BOX").hide()
+            hideMessage(player)
         elseif option == 2 then
             showMessage(player, "What would you\n\nlike to sell?")
             local sell_list = {}

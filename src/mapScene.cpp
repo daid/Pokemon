@@ -23,6 +23,22 @@ static sp::P<PokemonParty> luaf_createParty(sp::string trainer_name, sp::string 
     return party;
 }
 
+static sp::string luaf_getPokedexData(int index, int type)
+{
+    PokemonStats* s = PokemonStats::get(index);
+    if (!s)
+        return "";
+    switch(type)
+    {
+    case 0: return s->name;
+    case 1: return s->species;
+    case 2: return s->pokedex;
+    case 3: return s->height;
+    case 4: return s->weight;
+    }
+    return "?";
+}
+
 sp::P<MapScene> MapScene::get(sp::string name)
 {
     auto it = maps.find(name);
@@ -74,6 +90,7 @@ MapScene::MapScene(sp::string name)
     script_environment->setGlobal("map", this);
     script_environment->setGlobal("yield", luaf_yield);
     script_environment->setGlobal("createParty", luaf_createParty);
+    script_environment->setGlobal("getPokedexData", luaf_getPokedexData);
     script_environment->load(sp::io::ResourceProvider::get("map/utils.lua"));
     script_environment->load(sp::io::ResourceProvider::get("map/mainmenu.lua"));
     script_environment->load(sp::io::ResourceProvider::get("map/" + name + "/warps.lua"));

@@ -20,6 +20,7 @@ public:
     sp::string getName() { return name; }
     void setName(sp::string new_name) { name = new_name; }
     sp::string getClassName() { return stats.name; }
+    int getPokedexIndex() { return stats.index; }
     int getHP() { return hp; }
     void setHP(int new_hp) { hp = std::max(0, std::min(getMaxHP(), new_hp)); }
 
@@ -81,9 +82,11 @@ public:
     int special();
     
     bool hasType(sp::string type);
+    sp::string getType(int index);
     float damageTypeModifier(sp::string type);
 
     int getLevel();
+    int getExp() { return exp; }
     int getExpToNextLevel();
     void addXP(int amount);
     void addEV(sp::P<PokemonInstance> defeated_pokemon);

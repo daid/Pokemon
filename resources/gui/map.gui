@@ -10,6 +10,7 @@
             type: panel
             stretch: true
             margin: -8
+            order: -10
         }
 
         [CURSOR] {
@@ -41,6 +42,322 @@
             [ROW5] {
                 @ref: SELECT_POKEMON_ROW
             }
+        }
+    }
+    
+    [STATS_POKEMON] {
+        stretch: true
+        visible: false
+
+        {
+            type: panel
+            stretch: true
+            margin: -8
+            order: -10
+        }
+        
+        [IMAGE] {
+            type: image
+            size: 56, 56
+            alignment: topleft
+            margin: 8, 0
+            texture: gfx/front/NIDORAN_M.png
+        }
+
+        [NO] {
+            type: label
+            size: 56, 8
+            alignment: topleft
+            position: 8, 56
+            caption: #NO.123
+        }
+        
+        {
+            type: panel
+            alignment: topright
+            margin: 0, 0
+            theme_data: battle_right_panel
+            size: 96, 64
+
+            [NAME] {
+                type: label
+                size: 80, 8
+                text_alignment: left
+                caption: NAME123456
+                position: 8, 8
+            }
+            
+            [A1] {
+                stretch: true
+                visible: false
+                [LVL] {
+                    type: label
+                    caption: #LVL12
+                    size: 40, 8
+                    text_alignment: left
+                    position: 48, 16
+                }
+                {
+                    type: label
+                    caption: #HP
+                    size: 16, 8
+                    text_alignment: left
+                    position: 24, 24
+                }
+                [HP] {
+                    type: progressbar
+                    alignment: topleft
+                    position: 39, 24
+                    size: 50, 8
+                }
+                [HP_LABEL] {
+                    type: label
+                    caption: 100/100
+                    size: 80, 8
+                    text_alignment: left
+                    position: 32, 32
+                }
+                [STATUS_LABEL] {
+                    type: label
+                    caption: STATUS/OK
+                    size: 80, 8
+                    text_alignment: left
+                    position: 8, 48
+                }
+            }
+            [B1] {
+                stretch: true
+                visible: false
+                {
+                    type: label
+                    caption: EXP POINTS
+                    size: 80, 8
+                    text_alignment: left
+                    position: 8, 24
+                }
+                [EXP_LABEL] {
+                    type: label
+                    caption: 123456
+                    size: 80, 8
+                    text_alignment: right
+                    position: 8, 32
+                }
+                {
+                    type: label
+                    caption: LEVEL UP
+                    size: 80, 8
+                    text_alignment: left
+                    position: 8, 40
+                }
+                [EXP_TO_LVL_LABEL] {
+                    type: label
+                    caption: 1234 #LVL12
+                    size: 80, 8
+                    text_alignment: right
+                    position: 8, 48
+                }
+            }
+        }
+        
+        [A2] {
+            type: panel
+            visible: false
+            position: 0, 64
+            size: 80, 80
+            
+            {
+                type: label
+                caption: ATTACK
+                size: 64, 8
+                position: 8, 8
+                text_alignment: left
+            }
+            [ATTACK] {
+                type: label
+                caption: 1234
+                size: 64, 8
+                position: 8, 16
+                text_alignment: right
+            }
+            {
+                type: label
+                caption: DEFENSE
+                size: 64, 8
+                position: 8, 24
+                text_alignment: left
+            }
+            [DEFENSE] {
+                type: label
+                caption: 1234
+                size: 64, 8
+                position: 8, 32
+                text_alignment: right
+            }
+            {
+                type: label
+                caption: SPEED
+                size: 64, 8
+                position: 8, 40
+                text_alignment: left
+            }
+            [SPEED] {
+                type: label
+                caption: 1234
+                size: 64, 8
+                position: 8, 48
+                text_alignment: right
+            }
+            {
+                type: label
+                caption: SPECIAL
+                size: 64, 8
+                position: 8, 56
+                text_alignment: left
+            }
+            [SPECIAL] {
+                type: label
+                caption: 1234
+                size: 64, 8
+                position: 8, 64
+                text_alignment: right
+            }
+        }
+        [A3] {
+            type: panel
+            visible: false
+            alignment: topright
+            margin: 0, 0
+            theme_data: battle_right_panel
+            position: 0, 64
+            size: 80, 80
+
+            {
+                type: label
+                caption: TYPE1/
+                size: 64, 8
+                position: 0, 8
+                text_alignment: left
+            }
+            [TYPE1] {
+                type: label
+                caption: NORMAL
+                size: 64, 8
+                position: 8, 16
+                text_alignment: left
+            }
+            {
+                type: label
+                caption: TYPE2/
+                size: 64, 8
+                position: 0, 24
+                text_alignment: left
+            }
+            [TYPE2] {
+                type: label
+                caption: NORMAL
+                size: 64, 8
+                position: 8, 32
+                text_alignment: left
+            }
+        }
+        [B2] {
+            type: panel
+            visible: false
+            position: 0, 64
+            size: 160, 80
+            
+            [MOVE1] {
+                type: label
+                caption: MOVE1
+                size: 136, 8
+                position: 8, 8
+                text_alignment: left
+            }
+            [MOVE1_PP] {
+                type: label
+                caption: PP 11/12
+                size: 136, 8
+                position: 8, 16
+                text_alignment: right
+            }
+            [MOVE2] {
+                type: label
+                caption: MOVE2
+                size: 136, 8
+                position: 8, 24
+                text_alignment: left
+            }
+            [MOVE2_PP] {
+                type: label
+                caption: PP 11/12
+                size: 136, 8
+                position: 8, 32
+                text_alignment: right
+            }
+            [MOVE3] {
+                type: label
+                caption: MOVE3
+                size: 136, 8
+                position: 8, 40
+                text_alignment: left
+            }
+            [MOVE3_PP] {
+                type: label
+                caption: PP 11/12
+                size: 136, 8
+                position: 8, 48
+                text_alignment: right
+            }
+            [MOVE4] {
+                type: label
+                caption: MOVE4
+                size: 136, 8
+                position: 8, 56
+                text_alignment: left
+            }
+            [MOVE4_PP] {
+                type: label
+                caption: PP 11/12
+                size: 136, 8
+                position: 8, 64
+                text_alignment: right
+            }
+        }
+    }
+    
+    [POKEDEX] {
+        stretch: true
+        visible: false
+
+        {
+            type: panel
+            stretch: true
+            margin: -8
+            order: -10
+        }
+        
+        {
+            type: label
+            caption: CONTENTS
+            text_alignment: left
+            size: 80, 8
+            position: 8, 8
+        }
+        
+        [ENTRIES] {
+            type: label
+            text_alignment: topleft
+            size: 80, 128
+            position: 8, 8
+        }
+
+        [CURSOR] {
+            type: label
+            text_alignment: bottomleft
+            position: 0, 0
+            margin: 0, 16
+            size: 8, 16
+            caption: >
         }
     }
     

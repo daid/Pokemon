@@ -74,6 +74,17 @@ sp::P<PokemonInstance> PokemonParty::createPokemon(sp::string name, int level)
     return new_instance;
 }
 
+void PokemonParty::swapPokemon(int index_a, int index_b)
+{
+    if (index_a < 0 || index_a > party_size)
+        return;
+    if (index_b < 0 || index_b > party_size)
+        return;
+    if (index_a == index_b)
+        return;
+    std::swap(party[index_a], party[index_b]);
+}
+
 void PokemonParty::addItem(sp::string name)
 {
     for(unsigned int n=0; n<items.size(); n++)
@@ -113,6 +124,7 @@ void PokemonParty::onRegisterScriptBindings(sp::ScriptBindingClass& script_bindi
     script_binding_class.bind("get", &PokemonParty::getPartyMember);
     script_binding_class.bind("copyPokemon", &PokemonParty::copyPokemon);
     script_binding_class.bind("createPokemon", &PokemonParty::createPokemon);
+    script_binding_class.bind("swap", &PokemonParty::swapPokemon);
 
     script_binding_class.bind("markAsSeen", &PokemonParty::markAsSeen);
     script_binding_class.bind("markAsOwned", &PokemonParty::markAsOwned);

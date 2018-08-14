@@ -93,6 +93,15 @@ bool PokemonInstance::hasType(sp::string type_name)
     return false;
 }
 
+sp::string PokemonInstance::getType(int index)
+{
+    if (index >= int(stats.types.size()))
+        index = 0;
+    if (index >= int(stats.types.size()))
+        return "NORMAL";
+    return fromType(stats.types[index]);
+}
+
 float PokemonInstance::damageTypeModifier(sp::string type_name)
 {
     Type type = toType(type_name);
@@ -297,12 +306,15 @@ void PokemonInstance::onRegisterScriptBindings(sp::ScriptBindingClass& script_bi
     script_binding_class.bind("name", &PokemonInstance::getName);
     script_binding_class.bind("setName", &PokemonInstance::setName);
     script_binding_class.bind("className", &PokemonInstance::getClassName);
+    script_binding_class.bind("pokedexIndex", &PokemonInstance::getPokedexIndex);
 
     script_binding_class.bind("getHP", &PokemonInstance::getHP);
     script_binding_class.bind("setHP", &PokemonInstance::setHP);
 
     script_binding_class.bind("getMaxHP", &PokemonInstance::getMaxHP);
     script_binding_class.bind("getLevel", &PokemonInstance::getLevel);
+    script_binding_class.bind("getExp", &PokemonInstance::getExp);
+    script_binding_class.bind("getExpToNextLevel", &PokemonInstance::getExpToNextLevel);
     script_binding_class.bind("addXP", &PokemonInstance::addXP);
     script_binding_class.bind("addEV", &PokemonInstance::addEV);
     script_binding_class.bind("getLearnedMoveAt", &PokemonInstance::getLearnedMoveAt);
@@ -313,6 +325,7 @@ void PokemonInstance::onRegisterScriptBindings(sp::ScriptBindingClass& script_bi
     script_binding_class.bind("getSpecial", &PokemonInstance::special);
 
     script_binding_class.bind("hasType", &PokemonInstance::hasType);
+    script_binding_class.bind("getType", &PokemonInstance::getType);
     script_binding_class.bind("damageTypeModifier", &PokemonInstance::damageTypeModifier);
     
     script_binding_class.bind("isBurned", &PokemonInstance::isBurned);

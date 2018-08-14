@@ -54,8 +54,8 @@ int main(int argc, char** argv)
 #define ENABLE_PLAYER_2 0
 #if ENABLE_PLAYER_2
     player_info0->setViewport(sp::Rect2d(0, 0, 0.5, 1.0));
-    PlayerInfo player_info1(window, 1, controller1);
-    player_info1.setViewport(sp::Rect2d(0.5, 0, 0.5, 1.0));
+    sp::P<PlayerInfo> player_info1 = new PlayerInfo(window, 1, controller1);
+    player_info1->setViewport(sp::Rect2d(0.5, 0, 0.5, 1.0));
     player_info1->loadGame("BLUE.save");
 #endif
     engine->run();

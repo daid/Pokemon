@@ -26,6 +26,7 @@ class PokemonStats : sp::NonCopyable
 {
 public:
     sp::string name;
+    int index;
     BaseStats base;
     std::vector<Type> types;
     int catch_rate;
@@ -59,6 +60,7 @@ public:
     bool hasType(Type type) const;
 public:
     static PokemonStats* get(sp::string name);
+    static PokemonStats* get(int index);
     static void loadData();
 
 private:
