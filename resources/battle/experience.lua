@@ -117,6 +117,7 @@ function earnEvolution(info, pokemon, target_class)
     else
         showMessage(pokemon.name() .. "\nevolved\ninto " .. target_class)
         pokemon.evolveIntoClass(target_class)
+        party.markAsOwned(target_class)
     end
     ui.hide()
     info.image.show()
