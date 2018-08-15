@@ -1171,10 +1171,10 @@ map.createObject(270, 300).setSprite("ball").onUse(function(player) attemptToPic
 map.setWildPokemon({260, 298}, {319, 315}, 0.0588235).type("LAND").mode("RED").add(51, 16, "RATTATA").add(51, 16, "SPEAROW").add(39, 14, "RATTATA").add(25, 11, "EKANS").add(25, 13, "SPEAROW").add(25, 15, "EKANS").add(13, 17, "RATTATA").add(13, 17, "SPEAROW").add(11, 13, "EKANS").add(3, 17, "EKANS")
 map.setWildPokemon({260, 298}, {319, 315}, 0.0588235).type("LAND").mode("BLUE").add(51, 16, "RATTATA").add(51, 16, "SPEAROW").add(39, 14, "RATTATA").add(25, 11, "SANDSHREW").add(25, 13, "SPEAROW").add(25, 15, "SANDSHREW").add(13, 17, "RATTATA").add(13, 17, "SPEAROW").add(11, 13, "SANDSHREW").add(3, 17, "SANDSHREW")
 --map: SAFFRON_CITY
-map.createObject(227, 245).setSprite("rocket")--[[['1 ; person']--]]
+--map.createObject(227, 245).setSprite("rocket") -- In front of COPYCAT house
 map.createObject(240, 243).setSprite("rocket")--[[.enableWander()--]]--[[['2 ; person']--]]
-map.createObject(254, 247).setSprite("rocket")--[[['3 ; person']--]]
-map.createObject(233, 239).setSprite("rocket")--[[['4 ; person']--]]
+--map.createObject(254, 247).setSprite("rocket") -- In front of GYM
+--map.createObject(233, 239).setSprite("rocket") -- In front of SAFFRON_HOUSE_1
 map.createObject(231, 226).setSprite("rocket")--[[.enableWander()--]]--[[['5 ; person']--]]
 map.createObject(252, 238).setSprite("rocket")--[[.enableWander()--]]--[[['6 ; person']--]]
 map.createObject(238, 221).setSprite("rocket")--[[.enableWander()--]]--[[['7 ; person']--]]
@@ -1184,7 +1184,7 @@ map.createObject(237, 221).setSprite("erika")--[[.enableWander()--]]--[[['10 ; p
 map.createObject(250, 239).setSprite("gentleman").setDirection("DOWN")--[[['11 ; person']--]]
 map.createObject(251, 239).setSprite("bird").setDirection("DOWN")--[[['12 ; person']--]]
 map.createObject(238, 243).setSprite("rocker").setDirection("UP")--[[['13 ; person']--]]
-map.createObject(238, 229).setSprite("rocket").setDirection("DOWN")--[[['14 ; person']--]]
+--map.createObject(238, 229).setSprite("rocket").setDirection("DOWN") -- In front of SILPH_CO building
 map.createObject(239, 229).setSprite("rocket").setDirection("DOWN")--[[['15 ; person']--]]
 --map: VERMILION_CITY
 map.createObject(239, 172).setSprite("foulard_woman")--[[.enableWander()--]]--[[['1 ; person']--]]

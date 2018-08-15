@@ -85,6 +85,32 @@ void PokemonParty::swapPokemon(int index_a, int index_b)
     std::swap(party[index_a], party[index_b]);
 }
 
+void PokemonParty::transferToBackup(int index)
+{
+    if (index < 0 || index >= party_size)
+        return;
+    if (!party[index])
+        return;
+    backup_list.add(party[index]);
+    party[index] = nullptr;
+}
+
+void PokemonParty::transferFromBackup(int index)
+{
+    int n=0;
+    for(n=0; n<party_size; n++)
+        if (!party[n])
+            break;
+    if (n == party_size)
+        return;
+    auto it = backup_list.begin();
+    for(int m=0; m<index; m++)
+        ++it;
+    sp::P<PokemonInstance> i = *it;
+    backup_list.remove(i);
+    party[n] = i;
+}
+
 void PokemonParty::addItem(sp::string name)
 {
     for(unsigned int n=0; n<items.size(); n++)
@@ -125,6 +151,8 @@ void PokemonParty::onRegisterScriptBindings(sp::ScriptBindingClass& script_bindi
     script_binding_class.bind("copyPokemon", &PokemonParty::copyPokemon);
     script_binding_class.bind("createPokemon", &PokemonParty::createPokemon);
     script_binding_class.bind("swap", &PokemonParty::swapPokemon);
+    script_binding_class.bind("transferToBackup", &PokemonParty::transferToBackup);
+    script_binding_class.bind("transferFromBackup", &PokemonParty::transferFromBackup);
 
     script_binding_class.bind("markAsSeen", &PokemonParty::markAsSeen);
     script_binding_class.bind("markAsOwned", &PokemonParty::markAsOwned);

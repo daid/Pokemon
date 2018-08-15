@@ -1,7 +1,7 @@
 #ifndef POKEMON_INSTANCE_H
 #define POKEMON_INSTANCE_H
 
-#include "PokemonStats.h"
+#include "pokemonStats.h"
 
 #include <sp2/keyValueTree.h>
 #include <sp2/script/bindingObject.h>

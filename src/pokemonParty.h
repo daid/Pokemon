@@ -34,6 +34,8 @@ public:
     sp::P<PokemonInstance> createPokemon(sp::string name, int level);
     bool copyPokemon(sp::P<PokemonInstance> instance); //Returns true if placed in the party, false if placed in the backup list.
     void swapPokemon(int index_a, int index_b);
+    void transferToBackup(int index);
+    void transferFromBackup(int index);
 
     sp::string trainer_name;
     sp::string trainer_image;

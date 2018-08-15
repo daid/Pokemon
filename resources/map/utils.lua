@@ -278,3 +278,32 @@ function attemptToPickupObject(player, flag_name, item_name)
         player.getParty().addItem(item_name)
     end
 end
+
+function pokecenterComputer(player)
+    showMessage(player, "Accessed POKEMON\nStorage System.")
+    while true do
+        local option = choiceMenu(player, {"WITHDRAW #PKMN", "DEPOSIT #PKMN", "SEE YA!"})
+        local partysize = 0
+        for n=0,5 do if player.getParty().get(n) ~= nil then partysize = partysize + 1 end end
+        if option == 1 then
+            if partysize == 6 then
+                showMessage(player, "You can't take\n\nany more POKEMON.")
+                showMessage(player, "Deposit POKEMON\n\nfirst.")
+            else
+                --showMessage(player.getParty().get(index).name() .. " is\ntaken out.")
+            end
+        elseif option == 2 then
+            if partysize == 1 then
+                showMessage(player, "You can't deposit\nthe last POKEMON!")
+            else
+                local index = selectPokemonMenu(player)
+                if option ~= nil then
+                    showMessage(player.getParty().get(index).name() .. " was stored.")
+                    player.getParty().transferToBackup(index)
+                end
+            end
+        else
+            return
+        end
+    end
+end

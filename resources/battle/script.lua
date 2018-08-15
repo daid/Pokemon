@@ -241,7 +241,7 @@ function executeAction(source, target, action)
         if source.confusion_turns > 0 then
             source.confusion_turns = source.confusion_turns - 1
             if random(0, 99) < 25 then
-                local damage = math.floor((((2*source.getLevel())/5+2) * 40.0 * source.attack() / source.defense()) / 50 + 2)
+                local damage = math.floor((((2*source.level())/5+2) * 40.0 * source.attack() / source.defense()) / 50 + 2)
                 source.takeDamage(damage);
                 showMessage(source.name() + "\n\nis confused!")
                 --TODO: Animation
