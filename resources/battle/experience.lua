@@ -105,7 +105,7 @@ function earnEvolution(info, pokemon, target_class)
         yield()
         if party.keyCancel() then cancel = true end
     end
-    for loop=0,25 do
+    for loop=0,20 do
         ui.getWidget("IMAGE").setImage(image1)
         for m=0,3 do yield() if party.keyCancel() then cancel = true end end
         ui.getWidget("IMAGE").setImage(image2)
@@ -118,6 +118,10 @@ function earnEvolution(info, pokemon, target_class)
         showMessage(pokemon.name() .. "\nevolved\ninto " .. target_class)
         pokemon.evolveIntoClass(target_class)
     end
+    ui.hide()
     info.image.show()
     info.info_box.show()
+    if pokemon == info.pokemon._ref then
+        info.image.setImage("gfx/back/" .. pokemon.className() .. ".png")
+    end
 end
