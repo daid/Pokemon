@@ -8,7 +8,7 @@
 #include <sp2/window.h>
 #include <sp2/logging.h>
 #include <sp2/graphics/renderTexture.h>
-#include <sp2/graphics/meshData.h>
+#include <sp2/graphics/meshdata.h>
 #include <sp2/graphics/gui/theme.h>
 #include <sp2/graphics/gui/scene.h>
 #include <sp2/graphics/scene/graphicslayer.h>
