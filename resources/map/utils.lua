@@ -280,26 +280,42 @@ function attemptToPickupObject(player, flag_name, item_name)
 end
 
 function pokecenterComputer(player)
-    showMessage(player, "Accessed POKEMON\nStorage System.")
+    local party = player.getParty()
+    showMessage(player, "Accessed POKEMON\n\nStorage System.")
     while true do
         local option = choiceMenu(player, {"WITHDRAW #PKMN", "DEPOSIT #PKMN", "SEE YA!"})
         local partysize = 0
-        for n=0,5 do if player.getParty().get(n) ~= nil then partysize = partysize + 1 end end
+        for n=0,5 do if party.get(n) ~= nil then partysize = partysize + 1 end end
         if option == 1 then
             if partysize == 6 then
                 showMessage(player, "You can't take\n\nany more POKEMON.")
                 showMessage(player, "Deposit POKEMON\n\nfirst.")
             else
-                --showMessage(player.getParty().get(index).name() .. " is\ntaken out.")
+                local storage_list = {}
+                local n = 0
+                while party.getBackup(n) ~= nil do
+                    local p = party.getBackup(n)
+                    storage_list[#storage_list + 1] = p.name() .. string.rep(" ", 11 - #p.name()) .. "#LVL" .. p.getLevel()
+                    n = n + 1
+                end
+                if #storage_list == 0 then
+                    showMessage(player, "PC is empty.")
+                else
+                    local index = choiceMenu(player, storage_list)
+                    if index ~= nil then
+                        showMessage(player, party.getBackup(index - 1).name() .. " is\n\ntaken out.")
+                        party.transferFromBackup(index - 1)
+                    end
+                end
             end
         elseif option == 2 then
-            if partysize == 1 then
-                showMessage(player, "You can't deposit\nthe last POKEMON!")
+            if partysize < 2 then
+                showMessage(player, "You can't deposit\n\nthe last POKEMON!")
             else
                 local index = selectPokemonMenu(player)
                 if option ~= nil then
-                    showMessage(player.getParty().get(index).name() .. " was stored.")
-                    player.getParty().transferToBackup(index)
+                    showMessage(player, party.get(index).name() .. " was\n\nstored in PC.")
+                    party.transferToBackup(index)
                 end
             end
         else

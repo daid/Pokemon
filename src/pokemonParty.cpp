@@ -29,6 +29,17 @@ sp::P<PokemonInstance> PokemonParty::getPartyMember(int index)
     return party[index];
 }
 
+sp::P<PokemonInstance> PokemonParty::getBackupEntry(int index)
+{
+    if (index < 0 || index >= backup_list.size())
+        return nullptr;
+    
+    auto it = backup_list.begin();
+    for(int m=0; m<index; m++)
+        ++it;
+    return *it;
+}
+
 bool PokemonParty::copyPokemon(sp::P<PokemonInstance> instance)
 {
     sp::P<PokemonInstance> new_instance = new PokemonInstance(instance->stats->name, instance->getLevel(), false);
@@ -148,6 +159,7 @@ void PokemonParty::onRegisterScriptBindings(sp::ScriptBindingClass& script_bindi
     script_binding_class.bind("addItem", &PokemonParty::addItem);
 
     script_binding_class.bind("get", &PokemonParty::getPartyMember);
+    script_binding_class.bind("getBackup", &PokemonParty::getBackupEntry);
     script_binding_class.bind("copyPokemon", &PokemonParty::copyPokemon);
     script_binding_class.bind("createPokemon", &PokemonParty::createPokemon);
     script_binding_class.bind("swap", &PokemonParty::swapPokemon);
