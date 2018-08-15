@@ -8,9 +8,9 @@
 
 
 PokemonInstance::PokemonInstance(sp::string type, int level, bool wild)
-: stats(*PokemonStats::get(type))
+: stats(PokemonStats::get(type))
 {
-    exp = stats.expForLevel(level);
+    exp = stats->expForLevel(level);
     level = getLevel();
     if (wild)
     {
@@ -32,7 +32,7 @@ PokemonInstance::PokemonInstance(sp::string type, int level, bool wild)
     }
 
     int index = 0;
-    for(auto& it : stats.moves_at_level)
+    for(auto& it : stats->moves_at_level)
     {
         if (it.first > level)
             break;
@@ -45,19 +45,32 @@ PokemonInstance::PokemonInstance(sp::string type, int level, bool wild)
     }
     
     hp = getMaxHP();
-    name = stats.name;
+    name = stats->name;
+}
+
+void PokemonInstance::setHP(int new_hp)
+{
+    hp = std::max(0, std::min(getMaxHP(), new_hp));
+    if (hp == 0)
+    {
+        setBurned(false);
+        setFrozen(false);
+        setParalyzed(false);
+        setPoisoned(false);
+        setAsleep(0);
+    }
 }
 
 int PokemonInstance::getMaxHP()
 {
     int level = getLevel();
-    return (((stats.base.hp + iv.hp) * 2 + std::sqrt(ev.hp) / 4) * level) / 100 + level + 10;
+    return (((stats->base.hp + iv.hp) * 2 + std::sqrt(ev.hp) / 4) * level) / 100 + level + 10;
 }
 
 int PokemonInstance::attack()
 {
     int level = getLevel();
-    int attack = (((stats.base.attack + iv.attack) * 2 + std::sqrt(ev.attack) / 4) * level) / 100 + 5;
+    int attack = (((stats->base.attack + iv.attack) * 2 + std::sqrt(ev.attack) / 4) * level) / 100 + 5;
     if (burned)
         attack /= 2;
     return attack;
@@ -66,13 +79,13 @@ int PokemonInstance::attack()
 int PokemonInstance::defense()
 {
     int level = getLevel();
-    return (((stats.base.defense + iv.defense) * 2 + std::sqrt(ev.defense) / 4) * level) / 100 + 5;
+    return (((stats->base.defense + iv.defense) * 2 + std::sqrt(ev.defense) / 4) * level) / 100 + 5;
 }
 
 int PokemonInstance::speed()
 {
     int level = getLevel();
-    int speed = (((stats.base.speed + iv.speed) * 2 + std::sqrt(ev.speed) / 4) * level) / 100 + 5;
+    int speed = (((stats->base.speed + iv.speed) * 2 + std::sqrt(ev.speed) / 4) * level) / 100 + 5;
     if (paralyzed)
         speed /= 4;
     return speed;
@@ -81,13 +94,13 @@ int PokemonInstance::speed()
 int PokemonInstance::special()
 {
     int level = getLevel();
-    return (((stats.base.special + iv.special) * 2 + std::sqrt(ev.special) / 4) * level) / 100 + 5;
+    return (((stats->base.special + iv.special) * 2 + std::sqrt(ev.special) / 4) * level) / 100 + 5;
 }
 
 bool PokemonInstance::hasType(sp::string type_name)
 {
     Type type = toType(type_name);
-    for(Type user_type : stats.types)
+    for(Type user_type : stats->types)
         if (type == user_type)
             return true;
     return false;
@@ -95,18 +108,18 @@ bool PokemonInstance::hasType(sp::string type_name)
 
 sp::string PokemonInstance::getType(int index)
 {
-    if (index >= int(stats.types.size()))
+    if (index >= int(stats->types.size()))
         index = 0;
-    if (index >= int(stats.types.size()))
+    if (index >= int(stats->types.size()))
         return "NORMAL";
-    return fromType(stats.types[index]);
+    return fromType(stats->types[index]);
 }
 
 float PokemonInstance::damageTypeModifier(sp::string type_name)
 {
     Type type = toType(type_name);
     float type_modifier = 1.0;
-    for(Type target_type : stats.types)
+    for(Type target_type : stats->types)
         type_modifier *= getTypeVsTypeModifier(type, target_type);
     return type_modifier;
 }
@@ -114,14 +127,14 @@ float PokemonInstance::damageTypeModifier(sp::string type_name)
 int PokemonInstance::getLevel()
 {
     int level = 2;
-    while(stats.expForLevel(level) <= exp)
+    while(stats->expForLevel(level) <= exp)
         level++;
     return level - 1;
 }
 
 int PokemonInstance::getExpToNextLevel()
 {
-    return stats.expForLevel(getLevel() + 1);
+    return stats->expForLevel(getLevel() + 1);
 }
 
 void PokemonInstance::addXP(int amount)
@@ -132,19 +145,40 @@ void PokemonInstance::addXP(int amount)
 void PokemonInstance::addEV(sp::P<PokemonInstance> defeated_pokemon)
 {
     int start_hp = getMaxHP();
-    ev.hp = std::min(0xffff, ev.hp + defeated_pokemon->stats.base.hp);
-    ev.attack = std::min(0xffff, ev.attack + defeated_pokemon->stats.base.attack);
-    ev.defense = std::min(0xffff, ev.defense + defeated_pokemon->stats.base.defense);
-    ev.speed = std::min(0xffff, ev.speed + defeated_pokemon->stats.base.speed);
-    ev.special = std::min(0xffff, ev.speed + defeated_pokemon->stats.base.special);
+    ev.hp = std::min(0xffff, ev.hp + defeated_pokemon->stats->base.hp);
+    ev.attack = std::min(0xffff, ev.attack + defeated_pokemon->stats->base.attack);
+    ev.defense = std::min(0xffff, ev.defense + defeated_pokemon->stats->base.defense);
+    ev.speed = std::min(0xffff, ev.speed + defeated_pokemon->stats->base.speed);
+    ev.special = std::min(0xffff, ev.speed + defeated_pokemon->stats->base.special);
     int end_hp = getMaxHP();
     
     hp += end_hp - start_hp; //Adding EV to the HP stat can increase our max HP, so give that HP to us.
 }
 
+sp::string PokemonInstance::evolveByLevelUpTarget()
+{
+    for(auto& evolution : stats->evolution)
+    {
+        if (evolution.type == PokemonStats::Evolution::Type::Level && getLevel() >= evolution.level)
+            return evolution.target;
+    }
+    return "";
+}
+
+void PokemonInstance::evolveIntoClass(sp::string target_class)
+{
+    PokemonStats* new_stats = PokemonStats::get(target_class);
+    if (new_stats)
+    {
+        if (name == stats->name)
+            name = new_stats->name;
+        stats = new_stats;
+    }
+}
+
 sp::string PokemonInstance::getLearnedMoveAt(int level)
 {
-    for(auto& it : stats.moves_at_level)
+    for(auto& it : stats->moves_at_level)
         if (it.first == level)
             return it.second->name;
     return "";
@@ -152,14 +186,14 @@ sp::string PokemonInstance::getLearnedMoveAt(int level)
 
 int PokemonInstance::getExpForDefeat(bool from_trainer)
 {
-    float value = stats.base_exp * getLevel();
+    float value = stats->base_exp * getLevel();
     if (from_trainer) value *= 1.5;
     return value / 7;
 }
 
 int PokemonInstance::getCatchRating()
 {
-    return stats.catch_rate;
+    return stats->catch_rate;
 }
 
 sp::string PokemonInstance::getMoveName(int index)
@@ -228,7 +262,7 @@ int PokemonInstance::MoveData::getMaxPP()
 
 void PokemonInstance::saveGame(sp::KeyValueTreeNode& node)
 {
-    node.items["type"] = stats.name;
+    node.items["type"] = stats->name;
     
     node.items["name"] = name;
     node.items["hp"] = sp::string(hp);
@@ -317,6 +351,8 @@ void PokemonInstance::onRegisterScriptBindings(sp::ScriptBindingClass& script_bi
     script_binding_class.bind("getExpToNextLevel", &PokemonInstance::getExpToNextLevel);
     script_binding_class.bind("addXP", &PokemonInstance::addXP);
     script_binding_class.bind("addEV", &PokemonInstance::addEV);
+    script_binding_class.bind("evolveByLevelUpTarget", &PokemonInstance::evolveByLevelUpTarget);
+    script_binding_class.bind("evolveIntoClass", &PokemonInstance::evolveIntoClass);
     script_binding_class.bind("getLearnedMoveAt", &PokemonInstance::getLearnedMoveAt);
 
     script_binding_class.bind("getAttack", &PokemonInstance::attack);

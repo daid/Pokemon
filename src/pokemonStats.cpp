@@ -98,7 +98,34 @@ void PokemonStats::loadData()
         {
             pokemon_stats->allowed_tm.insert(sp::stringutil::convert::toInt(allowed_tm.strip()));
         }
-        //TODO: Evolution
+        
+        if (it.second.find("evolution") != it.second.end())
+        {
+            std::vector<sp::string> parts = it.second["evolution"].split(",");
+            for(unsigned int idx=0; idx<parts.size()-1; idx += 2)
+            {
+                if (parts[idx+1].strip() == "TRADE")
+                {
+                    pokemon_stats->evolution.emplace_back();
+                    pokemon_stats->evolution.back().type = Evolution::Type::Trade;
+                    pokemon_stats->evolution.back().target = parts[idx];
+                }
+                else if (sp::stringutil::convert::toInt(parts[idx+1]) > 0)
+                {
+                    pokemon_stats->evolution.emplace_back();
+                    pokemon_stats->evolution.back().type = Evolution::Type::Level;
+                    pokemon_stats->evolution.back().target = parts[idx];
+                    pokemon_stats->evolution.back().level = sp::stringutil::convert::toInt(parts[idx+1]);
+                }
+                else
+                {
+                    pokemon_stats->evolution.emplace_back();
+                    pokemon_stats->evolution.back().type = Evolution::Type::Item;
+                    pokemon_stats->evolution.back().target = parts[idx];
+                    pokemon_stats->evolution.back().item = parts[idx+1];
+                }
+            }
+        }
 
         data[it.first] = pokemon_stats;
         by_index[pokemon_stats->index] = pokemon_stats;

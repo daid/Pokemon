@@ -41,7 +41,9 @@ function earnExperience(info, amount)
                         earnNewMove(info, pokemon, new_move)
                     end
                 end
-                --TODO If level up evolution, display evolution animation (and allow user to cancel this)
+                if pokemon.evolveByLevelUpTarget() ~= "" then
+                    earnEvolution(info, pokemon, pokemon.evolveByLevelUpTarget())
+                end
             end
         end
     end
@@ -84,4 +86,38 @@ function earnNewMove(info, pokemon, move)
     pokemon.setMove(selected_slot, move)
     showMessage(pokemon.name() .. " learned\n\n" .. move .. "!")
     return true
+end
+
+function earnEvolution(info, pokemon, target_class)
+    print("Should evole!", target_class)
+
+    local party = info.party
+    local ui = gui.getWidget("EVOLUTION")
+    local image1 = "gfx/front/" .. pokemon.className() .. ".png"
+    local image2 = "gfx/front/" .. target_class .. ".png"
+    ui.getWidget("IMAGE").setImage(image1)
+    ui.show()
+    info.image.hide()
+    info.info_box.hide()
+    message_label.caption("What?\n" .. pokemon.name() .. "\nis evolving!")
+    canceled = false
+    for loop=0,20 do
+        yield()
+        if party.keyCancel() then cancel = true end
+    end
+    for loop=0,25 do
+        ui.getWidget("IMAGE").setImage(image1)
+        for m=0,3 do yield() if party.keyCancel() then cancel = true end end
+        ui.getWidget("IMAGE").setImage(image2)
+        for m=0,3 do yield() if party.keyCancel() then cancel = true end end
+    end
+    if canceled then
+        ui.getWidget("IMAGE").setImage(image1)
+        showMessage("Huh?\n" .. pokemon.name() .. "\nstopped evolving!")
+    else
+        showMessage(pokemon.name() .. "\nevolved\ninto " .. target_class)
+        pokemon.evolveIntoClass(target_class)
+    end
+    info.image.show()
+    info.info_box.show()
 end

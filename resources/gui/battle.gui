@@ -1,5 +1,17 @@
 [BATTLE] {
     stretch: true
+    [EVOLUTION] {
+        stretch: true
+        visible: false
+
+        [IMAGE] {
+            type: image
+            size: 56, 56
+            alignment: top
+            position: 0, 16
+            texture: gfx/front/NIDORAN_M.png
+        }
+    }
     
     [SELECT_POKEMON] {
         visible: false

@@ -59,7 +59,7 @@ int main(int argc, char** argv)
     player_info1->loadGame("BLUE.save");
 #endif
     engine->run();
-    player_info0->saveGame("saves/RED.save");
+    //player_info0->saveGame("saves/RED.save");
 #if ENABLE_PLAYER_2
     player_info1->saveGame("saves/BLUE.save");
 #endif

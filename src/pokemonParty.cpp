@@ -31,7 +31,7 @@ sp::P<PokemonInstance> PokemonParty::getPartyMember(int index)
 
 bool PokemonParty::copyPokemon(sp::P<PokemonInstance> instance)
 {
-    sp::P<PokemonInstance> new_instance = new PokemonInstance(instance->stats.name, instance->getLevel(), false);
+    sp::P<PokemonInstance> new_instance = new PokemonInstance(instance->stats->name, instance->getLevel(), false);
     
     new_instance->name = instance->name;
     new_instance->hp = instance->hp;
@@ -44,7 +44,7 @@ bool PokemonParty::copyPokemon(sp::P<PokemonInstance> instance)
     new_instance->iv = instance->iv;
     new_instance->ev = instance->ev;
 
-    markAsOwned(new_instance->stats.name);
+    markAsOwned(new_instance->stats->name);
     
     for(int n=0; n<party_size; n++)
     {
@@ -61,7 +61,7 @@ bool PokemonParty::copyPokemon(sp::P<PokemonInstance> instance)
 sp::P<PokemonInstance> PokemonParty::createPokemon(sp::string name, int level)
 {
     sp::P<PokemonInstance> new_instance = new PokemonInstance(name, level, false);
-    markAsOwned(new_instance->stats.name);
+    markAsOwned(new_instance->stats->name);
     for(int n=0; n<party_size; n++)
     {
         if (!party[n])

@@ -258,7 +258,7 @@ function playerSelectMove(pokemon, requires_pp)
     end
 end
 
-function playerSelectPokemon(party)
+function playerSelectPokemon(party, allow_select_dead)
     local ui = gui.getWidget("SELECT_POKEMON")
     local index = 0
     ui.getWidget("CURSOR").setOffset(0, index * 16)
@@ -293,7 +293,7 @@ function playerSelectPokemon(party)
             index = index + 1 if index == 6 then index = 0 end
             ui.getWidget("CURSOR").setOffset(0, index * 16)
         end
-        if party.keyConfirm() and party.get(index) and party.get(index).getHP() > 0 then
+        if party.keyConfirm() and party.get(index) and (party.get(index).getHP() > 0 or allow_select_dead) then
             ui.hide()
             gui.getWidget("PLAYER_INFO_BOX").show()
             gui.getWidget("ENEMY_INFO_BOX").show()

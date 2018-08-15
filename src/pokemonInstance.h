@@ -19,10 +19,10 @@ public:
     
     sp::string getName() { return name; }
     void setName(sp::string new_name) { name = new_name; }
-    sp::string getClassName() { return stats.name; }
-    int getPokedexIndex() { return stats.index; }
+    sp::string getClassName() { return stats->name; }
+    int getPokedexIndex() { return stats->index; }
     int getHP() { return hp; }
-    void setHP(int new_hp) { hp = std::max(0, std::min(getMaxHP(), new_hp)); }
+    void setHP(int new_hp);
 
     bool isBurned() { return burned; }
     bool isFrozen() { return frozen; }
@@ -50,7 +50,7 @@ public:
     void saveGame(sp::KeyValueTreeNode& node);
     void loadGame(const sp::KeyValueTreeNode& node);
 
-    const PokemonStats& stats;
+    const PokemonStats* stats;
     
     sp::string name;
     int hp = 0;
@@ -90,6 +90,8 @@ public:
     int getExpToNextLevel();
     void addXP(int amount);
     void addEV(sp::P<PokemonInstance> defeated_pokemon);
+    sp::string evolveByLevelUpTarget();
+    void evolveIntoClass(sp::string target_class);
     sp::string getLearnedMoveAt(int level);
     
     int getExpForDefeat(bool from_trainer);
