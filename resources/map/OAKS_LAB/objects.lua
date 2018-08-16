@@ -43,9 +43,9 @@ map.createObject(5, 9).setSprite("oak").setDirection("DOWN").onUse(function(play
 end)
 map.createObject(2, 10).setSprite("book_map_dex").onUse(function(player) showMessage(player, "Old school!\nYour POKEDEX is\nmuch better!") end)
 map.createObject(3, 10).setSprite("book_map_dex").onUse(function(player) showMessage(player, "Old school!\nYour POKEDEX is\nmuch better!") end)
-map.createObject(1, 2).setSprite("girl")--[[.enableWander()--]]--[[['9 ; person']--]]
-map.createObject(2, 1).setSprite("oak_aide")--[[['10 ; person']--]]
-map.createObject(8, 1).setSprite("oak_aide")--[[['11 ; person']--]]
+map.createObject(1, 2).setSprite("girl").onUse(function(player) showMessage(player, "I don't want\n\nmy POKEMON") showMessage(player, "to fight\n\nto their death...") showMessage(player, "But OAK makes\n\nme do it.") end)--[[.enableWander()--]]
+map.createObject(2, 1).setSprite("oak_aide").setDirection("RIGHT").onUse(function(player) if confirmQuestion(player, "Do you want\n\na PIKACHU?") then showMessage(player, "Then find it!") end end)
+map.createObject(8, 1).setSprite("oak_aide").setDirection("LEFT").onUse(function(player) if confirmQuestion(player, "Do you want\n\na MEW?") then showMessage(player, "You won't\n\nfind it!") end end)
 
 --Computer
 map.createObject(0, 10).onUse(function(player) showMessage(player, "Animated POKEMON\n\nporn...") end)

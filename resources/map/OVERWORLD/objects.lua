@@ -45,7 +45,16 @@ map.createObject(328, 236).setSprite("black_hair_boy_2")--[[.enableWander()--]]-
 --[[ map.createObject(58, 120).setSprite("oak") -- Removed, because is part of dynamic action we cannot replicate in the MMO situation. ]]
 map.createObject(60, 124).onTouch(function(player) if hasPokemon(player) then return end showMessage(player, "Dude, visit Oak\n\nto get a Pokemon.") player.teleportTo("OVERWORLD", 60, 123) end)
 map.createObject(61, 124).onTouch(function(player) if hasPokemon(player) then return end showMessage(player, "Dude, visit Oak\n\nto get a Pokemon.") player.teleportTo("OVERWORLD", 60, 123) end)
-map.createObject(53, 117).setSprite("girl")--[[.enableWander()--]]--[[['2 ; person']--]]
+map.createObject(53, 117).setSprite("girl").onUse(function(player) --[[.enableWander()--]]
+    if confirmQuestion(player, "Did you hear about\nthe secret\nFIGHT CLUB?") then
+        showMessage(player, "Nether have I.")
+    else
+        showMessage(player, "You know the\n\nfirst rule!")
+        showMessage(player, "Letting POKEMON\n\nfight to their")
+        showMessage(player, "death is the\n\nhighest trill!")
+        showMessage(player, "Just wished\nthat I remembered\nthe entrance.")
+    end
+end)
 map.createObject(61, 111).setSprite("fisher2").onUse(function(player) showMessage(player, "Make POKEMON\n\ngreat again!") end)
 --map: PEWTER_CITY
 map.createObject(48, 290).setSprite("lass")--[[['1 ; person']--]]

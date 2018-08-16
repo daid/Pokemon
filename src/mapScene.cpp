@@ -91,10 +91,10 @@ MapScene::MapScene(sp::string name)
     script_environment->setGlobal("yield", luaf_yield);
     script_environment->setGlobal("createParty", luaf_createParty);
     script_environment->setGlobal("getPokedexData", luaf_getPokedexData);
-    script_environment->load(sp::io::ResourceProvider::get("map/utils.lua"));
-    script_environment->load(sp::io::ResourceProvider::get("map/mainmenu.lua"));
-    script_environment->load(sp::io::ResourceProvider::get("map/" + name + "/warps.lua"));
-    script_environment->load(sp::io::ResourceProvider::get("map/" + name + "/objects.lua"));
+    script_environment->load("map/utils.lua");
+    script_environment->load("map/mainmenu.lua");
+    script_environment->load("map/" + name + "/warps.lua");
+    script_environment->load("map/" + name + "/objects.lua");
 }
 
 sp::script::CoroutinePtr MapScene::runGlobalFunctionForPlayer(sp::string function_name, sp::P<PlayerPawn> player)
