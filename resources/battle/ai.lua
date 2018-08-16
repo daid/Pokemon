@@ -10,6 +10,10 @@ function aiGetNextAction(pokemon)
             if pokemon.getMovePP(n) < pokemon.getMoveMaxPP(n) / 2 then
                 priority = priority - 5
             end
+            if string.sub(getMoveEffect(move), 1, 1) == "_" then
+                --Lower priority of not implemented effects.
+                priority = priority - 1000
+            end
             if getMovePower(move) < 1 then
                 --A move without power is generally a stats modifying move.
                 --Prefer those in the first 2 turns, but after that, the effectiveness isn't as good.

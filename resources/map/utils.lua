@@ -281,7 +281,7 @@ function shopkeeper(player, items)
                 if item_value[items[option]] > party.getMoney() then
                     showMessage(player, "Not enough money.")
                 else
-                    showMessage(player, "Bought 1*" .. items[option])
+                    showMessage(player, "Bought\n\n1*" .. items[option])
                     party.addItem(items[option])
                     party.setMoney(party.getMoney() - item_value[items[option]])
                 end
