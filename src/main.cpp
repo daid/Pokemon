@@ -19,12 +19,16 @@
 #include <sp2/scene/camera.h>
 #include <sp2/updatable.h>
 
+sp::io::Keybinding quit_key("quit", "Escape");
+
 
 class MultiplePlayerController : public sp::Updatable
 {
 public:
     virtual void onUpdate(float delta)
     {
+        if (quit_key.getDown())
+            sp::Engine::getInstance()->shutdown();
     }
 };
 
@@ -47,6 +51,8 @@ int main(int argc, char** argv)
 
     InputController controller0(0);
     InputController controller1(1);
+    
+    new MultiplePlayerController();
     
     sp::P<PlayerInfo> player_info0 = new PlayerInfo(window, 0, controller0);
     player_info0->loadGame("RED.save");
