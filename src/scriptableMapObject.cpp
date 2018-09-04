@@ -31,8 +31,8 @@ void ScriptableMapObject::onUse(sp::P<PlayerPawn> player)
 
 void ScriptableMapObject::setSprite(sp::string name)
 {
-    animation = sp::SpriteAnimation::load("gfx/sprite/" + name + ".txt");
-    animation->play("Stand_" + toString(direction));
+    setAnimation(sp::SpriteAnimation::load("gfx/sprite/" + name + ".txt"));
+    animationPlay("Stand_" + toString(direction));
     
     solid = true;
 }
@@ -40,5 +40,5 @@ void ScriptableMapObject::setSprite(sp::string name)
 void ScriptableMapObject::setDirection(sp::string dir)
 {
     direction = toDirection(dir);
-    if (animation) animation->play("Stand_" + toString(direction));
+    animationPlay("Stand_" + toString(direction));
 }

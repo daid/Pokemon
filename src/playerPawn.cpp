@@ -14,8 +14,8 @@
 PlayerPawn::PlayerPawn(sp::P<sp::Node> parent, sp::P<PlayerInfo> player_info, InputController& controller, sp::string sprite, sp::P<sp::gui::RootWidget> root_widget)
 : MapObject(parent), controller(controller), player_info(player_info)
 {
-    animation = sp::SpriteAnimation::load("gfx/sprite/" + sprite + ".txt");
-    animation->play("Stand_down");
+    setAnimation(sp::SpriteAnimation::load("gfx/sprite/" + sprite + ".txt"));
+    animationPlay("Stand_down");
     
     map_gui = new GuiWrapper(sp::gui::Loader::load("gui/map.gui", "GUI", root_widget));
 }
@@ -54,7 +54,7 @@ void PlayerPawn::onFixedUpdate()
                 if (active_coroutine)
                 {
                     //Prevent wild pokemon triggers when a script is started and still running.
-                    animation->play("Stand_" + toString(direction));
+                    animationPlay("Stand_" + toString(direction));
                     return;
                 }
             }
@@ -79,7 +79,7 @@ void PlayerPawn::onFixedUpdate()
             }
             
             if (!controller.down.get() && !controller.up.get() && !controller.left.get() && !controller.right.get())
-                animation->play("Stand_" + toString(direction));
+                animationPlay("Stand_" + toString(direction));
         }
     }
     else
@@ -112,7 +112,7 @@ void PlayerPawn::move(Direction direction)
     sp::P<MapObject> obj = scene->getObjectAt(getPosition2D() + toOffset(direction));
     if (obj && obj->isSolid())
     {
-        animation->play("Stand_" + toString(direction));
+        animationPlay("Stand_" + toString(direction));
         return;
     }
 
@@ -121,10 +121,10 @@ void PlayerPawn::move(Direction direction)
         obj = scene->getObjectAt(getPosition2D() + toOffset(direction) * 2.0);
         if (obj && obj->isSolid())
         {
-            animation->play("Stand_" + toString(direction));
+            animationPlay("Stand_" + toString(direction));
             return;
         }
-        animation->play("Walk_" + toString(direction));
+        animationPlay("Walk_" + toString(direction));
         walking = walking_ticks * 2;
         return;
     }
@@ -137,13 +137,13 @@ void PlayerPawn::move(Direction direction)
 
     if (!can_walk)
     {
-        animation->play("Stand_" + toString(direction));
+        animationPlay("Stand_" + toString(direction));
         if (obj)
             obj->onTouch(this);
         return;
     }
 
-    animation->play("Walk_" + toString(direction));
+    animationPlay("Walk_" + toString(direction));
     walking = walking_ticks;
 }
 
