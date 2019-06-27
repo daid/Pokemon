@@ -35,9 +35,9 @@ public:
 
 int main(int argc, char** argv)
 {
+    sp::P<sp::Engine> engine = new sp::Engine();
     sp::P<sp::Window> window = new sp::Window(160.0/144);
     window->setClearColor(sp::Color(1,1,1));
-    sp::P<sp::Engine> engine = new sp::Engine();
 
     new sp::io::DirectoryResourceProvider("resources");
     new sp::io::DirectoryResourceProvider("saves");

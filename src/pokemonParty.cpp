@@ -10,8 +10,8 @@ PokemonParty::~PokemonParty()
 {
     for(int n=0; n<party_size; n++)
         party[n].destroy();
-    for(PokemonInstance* instance : backup_list)
-        delete instance;
+    for(sp::P<PokemonInstance> instance : backup_list)
+        instance.destroy();
 }
 
 bool PokemonParty::hasAlivePokemon()

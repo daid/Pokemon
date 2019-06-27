@@ -114,7 +114,7 @@ sp::P<MapObject> MapScene::getObjectAt(sp::Vector2d v)
 
 sp::P<WildPokemonArea> MapScene::getWildPokemonArea(sp::Vector2i position, TileType type, sp::string mode)
 {
-    for(WildPokemonArea* area : wildpokemon_areas)
+    for(sp::P<WildPokemonArea> area : wildpokemon_areas)
     {
         if (area->getType() == type && area->contains(position))
         {

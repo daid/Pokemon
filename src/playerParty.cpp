@@ -83,7 +83,7 @@ void PlayerParty::loadGame(const sp::KeyValueTreeNode& node)
     }
 
     while(!backup_list.empty())
-        delete *backup_list.begin();
+        (*backup_list.begin()).destroy();
     const sp::KeyValueTreeNode* backup_node = node.findId("backup");
     for(auto& pokemon_node : backup_node->child_nodes)
     {
