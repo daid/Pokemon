@@ -13,7 +13,7 @@ PlayerInfo::PlayerInfo(sp::P<sp::Window> window, int index, InputController& inp
 : sp::Scene("PLAYER_INFO_" + sp::string(index)), input(input)
 {
     //Setup rendering information
-    gui_scene = new sp::gui::Scene(sp::Vector2d(160, 144), sp::gui::Scene::Direction::Horizontal, "GUI_" + sp::string(index));
+    gui_scene = new sp::gui::Scene(sp::Vector2d(160, 144), "GUI_" + sp::string(index));
 
     graphics_layer = new sp::SceneGraphicsLayer(1);
     render_pass = new sp::BasicNodeRenderPass(gui_scene->getCamera());
