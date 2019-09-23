@@ -25,7 +25,7 @@ sp::io::Keybinding quit_key("quit", "Escape");
 class MultiplePlayerController : public sp::Updatable
 {
 public:
-    virtual void onUpdate(float delta)
+    virtual void onUpdate(float delta) override
     {
         if (quit_key.getDown())
             sp::Engine::getInstance()->shutdown();
