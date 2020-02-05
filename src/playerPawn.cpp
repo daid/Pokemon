@@ -6,6 +6,7 @@
 #include "playerParty.h"
 #include "guiWrapper.h"
 
+#include <sp2/stringutil/convert.h>
 #include <sp2/graphics/gui/loader.h>
 #include <sp2/graphics/spriteAnimation.h>
 #include <sp2/graphics/gui/widget/root.h>
