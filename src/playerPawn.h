@@ -17,7 +17,7 @@ class PokemonParty;
 class PlayerPawn : public MapObject
 {
 public:
-    PlayerPawn(sp::P<sp::Node> parent, sp::P<PlayerInfo> player_info, InputController& controller, sp::string sprite, sp::P<sp::gui::RootWidget> root_widget);
+    PlayerPawn(sp::P<sp::Node> parent, sp::P<PlayerInfo> player_info, InputController& controller, sp::string sprite, sp::P<sp::gui::Widget> root_widget);
 
     virtual void onFixedUpdate() override;
     
