@@ -17,7 +17,7 @@ class GuiWrapper;
 class Battle : public sp::script::Environment
 {
 public:
-    Battle(sp::P<PlayerParty> player_party, sp::P<PokemonParty> enemy_party, sp::P<sp::gui::RootWidget> root_widget);
+    Battle(sp::P<PlayerParty> player_party, sp::P<PokemonParty> enemy_party, sp::P<sp::gui::Widget> root_widget);
     ~Battle();
 
     bool update();
