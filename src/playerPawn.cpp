@@ -12,7 +12,7 @@
 #include <sp2/graphics/gui/widget/root.h>
 
 
-PlayerPawn::PlayerPawn(sp::P<sp::Node> parent, sp::P<PlayerInfo> player_info, InputController& controller, sp::string sprite, sp::P<sp::gui::RootWidget> root_widget)
+PlayerPawn::PlayerPawn(sp::P<sp::Node> parent, sp::P<PlayerInfo> player_info, InputController& controller, sp::string sprite, sp::P<sp::gui::Widget> root_widget)
 : MapObject(parent), controller(controller), player_info(player_info)
 {
     setAnimation(sp::SpriteAnimation::load("gfx/sprite/" + sprite + ".txt"));
