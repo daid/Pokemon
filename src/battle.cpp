@@ -100,7 +100,7 @@ static int luaf_getMoveEffectPower(sp::string name)
     return move->effect_power;
 }
 
-Battle::Battle(sp::P<PlayerParty> player_party, sp::P<PokemonParty> enemy_party, sp::P<sp::gui::RootWidget> root_widget)
+Battle::Battle(sp::P<PlayerParty> player_party, sp::P<PokemonParty> enemy_party, sp::P<sp::gui::Widget> root_widget)
 : player_party(player_party), enemy_party(enemy_party)
 {
     battle_gui = new GuiWrapper(sp::gui::Loader::load("gui/battle.gui", "BATTLE", root_widget));
