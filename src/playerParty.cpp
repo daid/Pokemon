@@ -115,7 +115,7 @@ void PlayerParty::loadGame(const sp::KeyValueTreeNode& node)
         pokedex_flags[it.first] = sp::stringutil::convert::toInt(it.second);
 }
 
-void PlayerParty::onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class)
+void PlayerParty::onRegisterScriptBindings(sp::script::BindingClass& script_binding_class)
 {
     PokemonParty::onRegisterScriptBindings(script_binding_class);
     

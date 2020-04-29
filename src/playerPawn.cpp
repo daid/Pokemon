@@ -214,7 +214,7 @@ void PlayerPawn::loadGame(sp::KeyValueTreeNode& node)
     teleportTo(node.items["map"], sp::stringutil::convert::toInt(node.items["x"]), sp::stringutil::convert::toInt(node.items["y"]));
 }
 
-void PlayerPawn::onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class)
+void PlayerPawn::onRegisterScriptBindings(sp::script::BindingClass& script_binding_class)
 {
     script_binding_class.bind("keyUp", &PlayerPawn::keyUp);
     script_binding_class.bind("keyDown", &PlayerPawn::keyDown);

@@ -48,7 +48,7 @@ private:
     sp::P<GuiWrapper> getWidget(sp::string name);
     sp::P<PlayerParty> getParty();
     
-    virtual void onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class) override;
+    virtual void onRegisterScriptBindings(sp::script::BindingClass& script_binding_class) override;
 
     InputController& controller;
     sp::P<PlayerInfo> player_info;

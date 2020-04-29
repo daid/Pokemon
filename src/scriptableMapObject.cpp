@@ -11,7 +11,7 @@ ScriptableMapObject::ScriptableMapObject(sp::P<sp::Node> parent)
     //animation->play("Stand_down");
 }
 
-void ScriptableMapObject::onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class)
+void ScriptableMapObject::onRegisterScriptBindings(sp::script::BindingClass& script_binding_class)
 {
     script_binding_class.bind("onTouch", on_touch_callback);
     script_binding_class.bind("onUse", on_use_callback);

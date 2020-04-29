@@ -12,7 +12,7 @@
     Keeps track of current stats.
     These are stored to disk when the game is saved by the player (at least, for played based pokemon)
  */
-class PokemonInstance : public sp::ScriptBindingObject
+class PokemonInstance : public sp::script::BindingObject
 {
 public:
     PokemonInstance(sp::string type, int level, bool wild);
@@ -99,7 +99,7 @@ public:
     
     bool hasMove(Move* move) const;
     
-    virtual void onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class) override;
+    virtual void onRegisterScriptBindings(sp::script::BindingClass& script_binding_class) override;
 };
 
 #endif//POKEMON_INSTANCE_H

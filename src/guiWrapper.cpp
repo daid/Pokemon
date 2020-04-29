@@ -12,7 +12,7 @@ GuiWrapper::~GuiWrapper()
     gui.destroy();
 }
 
-void GuiWrapper::onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class)
+void GuiWrapper::onRegisterScriptBindings(sp::script::BindingClass& script_binding_class)
 {
     script_binding_class.bind("getWidget", &GuiWrapper::getWidget);
     script_binding_class.bind("setOffset", &GuiWrapper::setOffset);

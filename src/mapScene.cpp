@@ -148,7 +148,7 @@ sp::P<MapObject> MapScene::getObjectAt(int x, int y)
     return it->second;
 }
 
-void MapScene::onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class)
+void MapScene::onRegisterScriptBindings(sp::script::BindingClass& script_binding_class)
 {
     script_binding_class.bind("createObject", &MapScene::createObject);
     script_binding_class.bind("setWildPokemon", &MapScene::setWildPokemon);

@@ -33,7 +33,7 @@ public:
     virtual bool isPlayer() override { return true; }
     
 protected:
-    virtual void onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class) override;
+    virtual void onRegisterScriptBindings(sp::script::BindingClass& script_binding_class) override;
 
 private:
     bool keyUp() { return controller.up.getDown(); }

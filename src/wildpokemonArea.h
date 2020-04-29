@@ -5,7 +5,7 @@
 
 #include <sp2/random.h>
 
-class WildPokemonArea : public sp::ScriptBindingObject
+class WildPokemonArea : public sp::script::BindingObject
 {
 public:
     struct Encounter
@@ -80,7 +80,7 @@ private:
         encounters.back().name = name;
     }
 
-    virtual void onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class) override
+    virtual void onRegisterScriptBindings(sp::script::BindingClass& script_binding_class) override
     {
         script_binding_class.bind("type", &WildPokemonArea::setType);
         script_binding_class.bind("mode", &WildPokemonArea::setMode);

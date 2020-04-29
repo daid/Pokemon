@@ -34,7 +34,7 @@ public:
 private:
     MapScene(sp::string name);
 
-    virtual void onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class) override;
+    virtual void onRegisterScriptBindings(sp::script::BindingClass& script_binding_class) override;
     sp::P<ScriptableMapObject> createObject(int x, int y);
     sp::P<WildPokemonArea> setWildPokemon(sp::Vector2i start, sp::Vector2i end, float encounter_rate);
     void setAlwaysWildEncounters() { always_wild_encounters = true; }

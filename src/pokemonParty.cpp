@@ -147,7 +147,7 @@ void PokemonParty::removeItem(int index)
     }
 }
 
-void PokemonParty::onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class)
+void PokemonParty::onRegisterScriptBindings(sp::script::BindingClass& script_binding_class)
 {
     script_binding_class.bind("getTrainerName", &PokemonParty::getTrainerName);
     script_binding_class.bind("getTrainerImage", &PokemonParty::getTrainerImage);

@@ -335,7 +335,7 @@ void PokemonInstance::loadGame(const sp::KeyValueTreeNode& node)
     }
 }
 
-void PokemonInstance::onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class)
+void PokemonInstance::onRegisterScriptBindings(sp::script::BindingClass& script_binding_class)
 {
     script_binding_class.bind("name", &PokemonInstance::getName);
     script_binding_class.bind("setName", &PokemonInstance::setName);

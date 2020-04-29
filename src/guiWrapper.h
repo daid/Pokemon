@@ -4,7 +4,7 @@
 #include <sp2/script/bindingObject.h>
 #include <sp2/graphics/gui/widget/widget.h>
 
-class GuiWrapper : public sp::ScriptBindingObject
+class GuiWrapper : public sp::script::BindingObject
 {
 public:
     GuiWrapper(sp::P<sp::gui::Widget> gui);
@@ -12,7 +12,7 @@ public:
 
     sp::P<GuiWrapper> getWidget(sp::string name);
 protected:
-    virtual void onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class) override;
+    virtual void onRegisterScriptBindings(sp::script::BindingClass& script_binding_class) override;
     
     void setImage(sp::string name);
 

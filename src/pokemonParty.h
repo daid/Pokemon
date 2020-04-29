@@ -6,7 +6,7 @@
 #include <sp2/script/bindingObject.h>
 
 
-class PokemonParty : public sp::ScriptBindingObject
+class PokemonParty : public sp::script::BindingObject
 {
 public:
     static constexpr int party_size = 6;
@@ -14,7 +14,7 @@ public:
     PokemonParty();
     ~PokemonParty();
     
-    virtual void onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class) override;
+    virtual void onRegisterScriptBindings(sp::script::BindingClass& script_binding_class) override;
     
     sp::string getTrainerName() { return trainer_name; }
     sp::string getTrainerImage() { return trainer_image; }

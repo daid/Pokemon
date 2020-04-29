@@ -8,7 +8,7 @@ class ScriptableMapObject : public MapObject
 public:
     ScriptableMapObject(sp::P<sp::Node> parent);
     
-    virtual void onRegisterScriptBindings(sp::ScriptBindingClass& script_binding_class) override;
+    virtual void onRegisterScriptBindings(sp::script::BindingClass& script_binding_class) override;
     virtual void onTouch(sp::P<PlayerPawn> player) override;
     virtual void onUse(sp::P<PlayerPawn> player) override;
 
