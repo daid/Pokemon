@@ -125,7 +125,7 @@ Battle::Battle(sp::P<PlayerParty> player_party, sp::P<PokemonParty> enemy_party,
     setGlobal("getMoveEffectPower", luaf_getMoveEffectPower);
     
     load("battle/script.lua");
-    battle_coroutine = callCoroutine("runBattle");
+    battle_coroutine = callCoroutine("runBattle").value();
 }
 
 Battle::~Battle()
@@ -139,7 +139,7 @@ bool Battle::update()
 {
     if (!battle_coroutine)
         return false;
-    if (!battle_coroutine->resume())
+    if (!battle_coroutine->resume().value())
     {
         LOG(Info, "Battle ended!");
         battle_coroutine = nullptr;

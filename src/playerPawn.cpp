@@ -27,7 +27,7 @@ void PlayerPawn::onFixedUpdate()
         return;
     if (active_coroutine)
     {
-        if (!active_coroutine->resume())
+        if (!active_coroutine->resume().value())
             active_coroutine = nullptr;
         return;
     }

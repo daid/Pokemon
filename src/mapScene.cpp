@@ -99,7 +99,7 @@ MapScene::MapScene(sp::string name)
 
 sp::script::CoroutinePtr MapScene::runGlobalFunctionForPlayer(sp::string function_name, sp::P<PlayerPawn> player)
 {
-    return script_environment->callCoroutine(function_name, player);
+    return script_environment->callCoroutine(function_name, player).value();
 }
 
 MapScene::TileType MapScene::getTile(sp::Vector2d v)

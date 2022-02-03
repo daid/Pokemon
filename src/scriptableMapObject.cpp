@@ -21,12 +21,12 @@ void ScriptableMapObject::onRegisterScriptBindings(sp::script::BindingClass& scr
 
 void ScriptableMapObject::onTouch(sp::P<PlayerPawn> player)
 {
-    player->active_coroutine = on_touch_callback.callCoroutine(player);
+    player->active_coroutine = on_touch_callback.callCoroutine(player).value();
 }
 
 void ScriptableMapObject::onUse(sp::P<PlayerPawn> player)
 {
-    player->active_coroutine = on_use_callback.callCoroutine(player);
+    player->active_coroutine = on_use_callback.callCoroutine(player).value();
 }
 
 void ScriptableMapObject::setSprite(sp::string name)
