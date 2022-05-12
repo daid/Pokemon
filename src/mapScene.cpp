@@ -80,9 +80,10 @@ MapScene::MapScene(sp::string name)
         std::vector<int> tiles = sp::stringutil::convert::toIntArray(stream->readLine());
         for(int x=0; x<size.x; x++)
         {
-            tilemaps[x / 100 + y / 100 * tilemap_rows]->setTile(x % 100, y % 100, tiles[x]);
+            double z_offset = 0.0;
             if (tile_types[tiles[x]] == TileType::Grass)
-                tilemaps[x / 100 + y / 100 * tilemap_rows]->setTileZOffset(x % 100, y % 100, 0.9955);
+                z_offset = 0.9955;
+            tilemaps[x / 100 + y / 100 * tilemap_rows]->setTile({x % 100, y % 100}, tiles[x], z_offset);
         }
     }
     
@@ -134,7 +135,7 @@ MapScene::TileType MapScene::getTile(int x, int y)
     
     int tilemap_x = x / 100;
     int tilemap_y = y / 100;
-    int tile_index = tilemaps[tilemap_x + tilemap_y * tilemap_rows]->getTileIndex(x - tilemap_x * 100, y - tilemap_y * 100);
+    int tile_index = tilemaps[tilemap_x + tilemap_y * tilemap_rows]->getTileIndex({x - tilemap_x * 100, y - tilemap_y * 100});
     if (tile_index < 0)
         return TileType::Blocked;
     return tile_types[tile_index];
