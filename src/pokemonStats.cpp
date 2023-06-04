@@ -61,7 +61,7 @@ PokemonStats* PokemonStats::get(int index)
 
 void PokemonStats::loadData()
 {
-    for(auto& it : sp::io::KeyValueTreeLoader::load("stats.txt")->getFlattenNodesByIds())
+    for(auto& it : sp::io::KeyValueTreeLoader::loadResource("stats.txt")->getFlattenNodesByIds())
     {
         PokemonStats* pokemon_stats = new PokemonStats();
         pokemon_stats->name = it.first;
