@@ -90,18 +90,18 @@ void PlayerInfo::onFixedUpdate()
 
 void PlayerInfo::saveGame(sp::string filename)
 {
-    sp::KeyValueTreePtr tree = std::make_shared<sp::KeyValueTree>();
-    tree->root_nodes.emplace_back("pawn");
-    pawn->saveGame(tree->root_nodes.back());
-    tree->root_nodes.emplace_back("party");
-    party->saveGame(tree->root_nodes.back());
+    sp::KeyValueTree tree;
+    tree.root_nodes.emplace_back("pawn");
+    pawn->saveGame(tree.root_nodes.back());
+    tree.root_nodes.emplace_back("party");
+    party->saveGame(tree.root_nodes.back());
     
     sp::io::KeyValueTreeSaver::save(filename, tree);
 }
 
 void PlayerInfo::loadGame(sp::string filename)
 {
-    sp::KeyValueTreePtr tree = sp::io::KeyValueTreeLoader::load(filename);
+    sp::KeyValueTreePtr tree = sp::io::KeyValueTreeLoader::loadResource(filename);
     if (!tree)
         return;
     pawn->loadGame(*tree->findId("pawn"));

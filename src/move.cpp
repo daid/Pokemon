@@ -17,7 +17,7 @@ Move* Move::get(sp::string name)
 
 void Move::loadData()
 {
-    for(auto& it : sp::io::KeyValueTreeLoader::load("moves.txt")->getFlattenNodesByIds())
+    for(auto& it : sp::io::KeyValueTreeLoader::loadResource("moves.txt")->getFlattenNodesByIds())
     {
         Move* move = new Move();
         move->name = it.first;
